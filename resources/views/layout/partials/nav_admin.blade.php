@@ -9,9 +9,15 @@
 							<li class="{{ Request::is('admin/index_admin') ? 'active' : '' }}"> 
 								<a class="text-dark" href="index_admin"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 							</li>
+
+
 							
 							<li  class="{{ Request::is('admin/procedures') ? 'active' : '' }}"> 
 								<a class="text-dark" href="procedures"><i class="fe fe-users"></i> <span>Procedures</span></a>
+							</li>
+
+							<li  class="{{ Request::is('admin/diseases') ? 'active' : '' }}"> 
+								<a class="text-dark" href="diseases"><i class=" fe fe-layout"></i> <span>Diseases</span></a>
 							</li>
 
 							<li  class="{{ Request::is('admin/treatments') ? 'active' : '' }}"> 
@@ -24,11 +30,12 @@
 							</li>
 
 
-						<!--	<li  class="{{ Request::is('admin/doctor-list') ? 'active' : '' }}"> 
+							<li  class="{{ Request::is('admin/doctor-list') ? 'active' : '' }}"> 
 								<a class="text-dark" href="doctor-list"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
 							</li>
-							<li  class="{{ Request::is('admin/patient-list') ? 'active' : '' }}"> 
-								<a class="text-dark" href="patient-list"><i class="fe fe-user"></i> <span>Patients</span></a>
+
+							<!-- <li  class="{{ Request::is('admin/patient-list') ? 'active' : '' }}"> 
+								<a class="text-dark" href="patient-list"><i class="fe fe-user"></i> <span>Patients</span></a> 
 							</li> -->
 
 							

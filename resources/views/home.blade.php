@@ -109,12 +109,17 @@
 
                 <td class="text-right"> 
                 <div class="actions">
-                <a style="font-size:11px;" class="btn btn-outline-success mb-2 w-100 py-0"  href="{{route('edit_patient',$p->id) }}">
+
+                  <a style="font-size:11px;" class="btn btn-outline-info mb-2 w-100 py-0"  href="{{route('patient-single', $p->id)}}">
+                <i class="fe fe-pencil"></i> View
+                </a>
+
+                <!-- <a style="font-size:11px;" class="btn btn-outline-success mb-2 w-100 py-0"  href="{{route('edit_patient',$p->id) }}">
                 <i class="fe fe-pencil"></i> Edit
                 </a>
                 <a style="font-size:11px;" onclick="return confirm('Are you sure...?') "  href="{{route('delete_patient',$p->id)}}" class="btn btn-outline-danger py-0">
                 <i class="fe fe-trash"></i> Delete
-                </a>
+                </a> -->
                 </div>
                 </td>
                           

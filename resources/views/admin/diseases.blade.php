@@ -30,15 +30,13 @@
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>
 												<tr>
-													<th>Name</th>
-													<th>Disease Id</th>
+													<th>Disease ID</th>
 													<th>Disease Name</th>
-													<th>Procedure Name</th>
-													<th>Medication A</th>
-													<th>Medication B</th>
-													<th>Medication C</th>
-													<th>Medication D</th>
-													<th>Medication E</th>
+													<th>Symptom A</th>
+													<th>Symptom B</th>
+													<th>Symptom C</th>
+													<th>Symptom D</th>
+													<th>Symptom E</th>
 													
 													<th class="text-right">Action</th>
 												</tr>
@@ -48,15 +46,14 @@
 											<tbody>				
 												@foreach($location as $l)
 												<tr>
-													<td>{{$l->t_name}}</td>
-													<td>{{$l->disease_id}}</td>
-													<td>{{$l->disease_name}}</td>
-													<td>{{$l->procedure_name}}</td>
-													<td>{{$l->medic_a}}</td>
-													<td>{{$l->medic_b}}</td>
-													<td>{{$l->medic_c}}</td>
-													<td>{{$l->medic_d}}</td>
-													<td>{{$l->medic_e}}</td>
+													<td>{{$l->id}}</td>
+													<td>{{$l->d_name}}</td>
+													<td>{{$l->sym_a}}</td>
+													<td>{{$l->sym_b}}</td>
+													<td>{{$l->sym_c}}</td>
+													<td>{{$l->sym_d}}</td>
+													<td>{{$l->sym_e}}</td>
+													
 													
 													
 													
@@ -65,7 +62,7 @@
 															<a class="btn btn-sm bg-success-light" data-toggle="modal" href="#edit_specialities_details{{$l->id}}">
 																<i class="fe fe-pencil"></i> Edit
 															</a>
-							<a onclick="return confirm('Are you sure...?') "  href="{{route('del_location',$l->id)}}" class="btn btn-sm bg-danger-light">
+							<a onclick="return confirm('Are you sure...?') "  href="{{route('del_disease',$l->id)}}" class="btn btn-sm bg-danger-light">
 																<i class="fe fe-trash"></i> Delete
 															</a>
 														</div>
@@ -91,23 +88,30 @@
 				<div class="modal-dialog modal-dialog-centered" role="document" >
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title">Edit Treatment</h5>
+							<h5 class="modal-title">Edit Disease</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
 						<div class="modal-body">
 							
-							<form action="{{route('up_treatment')}}"  method="post" enctype="multipart/form-data"> 
+							<form action="{{route('up_disease')}}"  method="post" enctype="multipart/form-data"> @csrf
 
-								@csrf
 								<input  name="id" type="number" hidden value="{{$l->id}}" class="form-control">
 
-								<div class="row form-row">
+								<div class="row ">
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
-										<label>Treatment Name</label>
-										<input required="" name="t_name" type="text" value="{{$l->t_name}}" class="form-control">
+											<label>Disease Name</label>
+											<input required="" name="d_name" type="text" value="{{$l->d_name}}" class="form-control">
+										</div>
+									</div>
+
+
+									<div class="col-12 col-sm-6">
+										<div class="form-group">
+											<label>Symptom A</label>
+											<input required=""  type="text" name="sym_a" value="{{$l->sym_a}}" class="form-control" >
 										</div>
 									</div>
 
@@ -115,61 +119,29 @@
 
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
-										<label>Disease Name</label>
-										<select required="" type="text" name="disease_name" class="form-control">
-											@foreach($diseases as $d)
-										 <option @if($d->id == $l->disease_id) selected @endif value="{{$d->d_name}}">{{$d->d_name}}</option> @endforeach
-										  </select>
+											<label>Symptom B</label>
+											<input required=""  type="text" name="sym_b"  value="{{$l->sym_b}}"class="form-control" >
 										</div>
 									</div>
 
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
-											<label>Procedure Name</label>
-
-											<select required="" type="text" name="procedure_name" class="form-control">
-											@foreach($procedure as $p)
-										 <option @if($p->proc_name == $l->procedure_name) selected @endif value="{{$l->procedure_name}}">
-										 	{{$l->procedure_name}}</option> @endforeach
-										  </select>
-
+											<label>Symptom C</label>
+											<input required=""  type="text" name="sym_c" value="{{$l->sym_c}}" class="form-control" >
 										</div>
 									</div>
 
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
-											<label>Medication A</label>
-											<input required=""  type="text" name="medic_a"value="{{$l->medic_a}}" class="form-control" >
-										</div>
-									</div>
-
-
-
-									<div class="col-12 col-sm-6">
-										<div class="form-group">
-											<label>Medication B</label>
-											<input required=""  type="text" name="medic_b" value="{{$l->medic_b}}" class="form-control" >
+											<label>Symptom D</label>
+											<input required=""  type="text" name="sym_d" value="{{$l->sym_d}}" class="form-control" >
 										</div>
 									</div>
 
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
-											<label>Medication C</label>
-											<input required=""  type="text" name="medic_c" value="{{$l->medic_c}}" class="form-control" >
-										</div>
-									</div>
-
-									<div class="col-12 col-sm-6">
-										<div class="form-group">
-											<label>Medication D</label>
-											<input required=""  type="text" name="medic_d" value="{{$l->medic_d}}" class="form-control" >
-										</div>
-									</div>
-
-									<div class="col-12 col-sm-6">
-										<div class="form-group">
-											<label>Medication E</label>
-											<input required=""  type="text" name="medic_e" value="{{$l->medic_e}}" class="form-control" >
+											<label>Symptom E</label>
+											<input required=""  type="text" name="sym_e" value="{{$l->sym_e}}" class="form-control" >
 										</div>
 									</div>
 									
@@ -192,52 +164,28 @@
 				<div class="modal-dialog modal-dialog-centered" role="document" >
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title">Add Treatment</h5>
+							<h5 class="modal-title">Add Disease</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
 						<div class="modal-body">
-							<form action="{{route('add_treatment')}}"  method="post" enctype="multipart/form-data">
+							<form action="{{route('add_disease')}}"  method="post" enctype="multipart/form-data">
 								@csrf
-								<div class="row form-row">
-									<div class="col-12 col-sm-6">
-										<div class="form-group">
-											<label>Treatment Name</label>
-											<input required="" name="t_name" type="text" class="form-control">
-										</div>
-									</div>
-
-									<div class="col-12 col-sm-6">
-										<div class="form-group">
-											<label>Disease Id</label>
-											<input required=""  type="number" name="disease_id" class="form-control" >
-										</div>
-									</div>
-
-
+								<div class="row">
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
 											<label>Disease Name</label>
-											<input required=""  type="text" name="disease_name" class="form-control" >
+											<input required="" name="d_name" type="text" class="form-control">
 										</div>
 									</div>
 
-									<div class="col-12 col-sm-6">
-										<div class="form-group">
-											<label>Procedure Name</label>
-											<select required="" type="text" name="procedure_name" class="form-control">
-											@foreach($procedure as $p)
-										 <option value="{{$l->procedure_name}}">
-										 	{{$l->procedure_name}}</option> @endforeach
-										  </select>
-										</div>
-									</div>
+									
 
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
-											<label>Medication A</label>
-											<input required=""  type="text" name="medic_a" class="form-control" >
+											<label>Symptom A</label>
+											<input required=""  type="text" name="sym_a" class="form-control" >
 										</div>
 									</div>
 
@@ -245,29 +193,29 @@
 
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
-											<label>Medication B</label>
-											<input required=""  type="text" name="medic_b" class="form-control" >
+											<label>Symptom B</label>
+											<input required=""  type="text" name="sym_b" class="form-control" >
 										</div>
 									</div>
 
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
-											<label>Medication C</label>
-											<input required=""  type="text" name="medic_c" class="form-control" >
+											<label>Symptom C</label>
+											<input required=""  type="text" name="sym_c" class="form-control" >
 										</div>
 									</div>
 
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
-											<label>Medication D</label>
-											<input required=""  type="text" name="medic_d" class="form-control" >
+											<label>Symptom D</label>
+											<input required=""  type="text" name="sym_d" class="form-control" >
 										</div>
 									</div>
 
 									<div class="col-12 col-sm-6">
 										<div class="form-group">
-											<label>Medication E</label>
-											<input required=""  type="text" name="medic_e" class="form-control" >
+											<label>Symptom E</label>
+											<input required=""  type="text" name="sym_e" class="form-control" >
 										</div>
 									</div>
 									

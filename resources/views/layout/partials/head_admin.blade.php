@@ -87,7 +87,7 @@
 
          <title>Admin - Dashboard</title>
 		<!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets_admin/img/favicon.png')}}">
+        <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
 		
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{asset('assets_admin/css/bootstrap.min.css')}}">

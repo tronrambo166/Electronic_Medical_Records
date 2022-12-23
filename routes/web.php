@@ -58,44 +58,41 @@ Route::Group(['prefix' => 'admin'], function () {
     Route::get('/index_admin','adminController@index_admin')->name('index_admin');
     Route::get('/logout','adminController@logout')->name('logout');
 
-        Route::get('/appointment-list', 'adminController@appointments')->name('appointment-list');
-        Route::get('/del_appointment/{id}', 'adminController@del_appointment')->name('del_appointment');
+        
         Route::get('/patient-list', 'adminController@patients')->name('patient-list');
-        Route::get('/transactions-list', 'adminController@transactions')->name('transactions-list');
-        Route::get('/del_transaction/{id}', 'adminController@del_transaction')->name('del_transaction');
 
-        Route::get('/procedures', 'adminController@procedures')->name('procedures');
+       
         Route::get('/reports', 'adminController@reports')->name('reports');
 
-         Route::post('/add_procedures', 'adminController@add_procedures')->name('add_procedures');
+         
          Route::post('/up_category', 'adminController@up_category')->name('up_category');
          Route::get('/del_category/{id}', 'adminController@del_category')->name('del_category');
 
         Route::get('/doctor-list', 'adminController@doctors')->name('doctor-list');
-         Route::post('/add_doctor', 'adminController@add_doctor')->name('add_doctor');
-         Route::post('/up_doctor', 'adminController@up_doctor')->name('up_doctor');
-         Route::get('/del_doctor/{id}', 'adminController@del_doctor')->name('del_doctor');
 
         Route::get('/users', 'adminController@users')->name('users');
          Route::post('/add_users', 'adminController@add_users')->name('add_users');
          Route::get('/del_users/{id}', 'adminController@del_users')->name('del_users');
 
-       
-       
-        Route::get('/clinics', 'adminController@clinics')->name('clinics');
-         Route::post('/add_clinic', 'adminController@add_clinic')->name('add_clinic');
-         Route::post('/up_clinic', 'adminController@up_clinic')->name('up_clinic');
-         Route::get('/del_clinic/{id}', 'adminController@del_clinic')->name('del_clinic');
 
-        Route::get('/hospitals', 'adminController@hospitals')->name('hospitals');
-         Route::post('/add_hospital', 'adminController@add_hospital')->name('add_hospital');
-         Route::post('/up_hospital', 'adminController@up_hospital')->name('up_hospital');
-         Route::get('/del_hospital/{id}', 'adminController@del_hospital')->name('del_hospital');
-       
+         //Procedures
+          Route::get('/procedures', 'adminController@procedures')->name('procedures');
+          Route::post('/add_procedures', 'adminController@add_procedures')->name('add_procedures');
+         Route::post('/up_procedure', 'adminController@up_procedure')->name('up_procedure');
+         Route::get('/del_procedure/{id}', 'adminController@del_procedure')->name('del_procedure');
+
+       //Treatment
         Route::get('/treatments', 'adminController@treatments')->name('treatments');
-         Route::post('/add_location', 'adminController@add_location')->name('add_location');
-         Route::post('/up_location', 'adminController@up_location')->name('up_location');
-         Route::get('/del_location/{id}', 'adminController@del_location')->name('del_location');
+         Route::post('/add_treatment', 'adminController@add_treatment')->name('add_treatment');
+         Route::post('/up_treatment', 'adminController@up_treatment')->name('up_treatment');
+         Route::get('/del_treatment/{id}', 'adminController@del_treatment')->name('del_location');
+
+         //Diseases
+         
+         Route::get('/diseases', 'adminController@diseases')->name('diseases');
+         Route::post('/add_disease', 'adminController@add_disease')->name('add_disease');
+         Route::post('/up_disease', 'adminController@up_disease')->name('up_disease');
+         Route::get('/del_disease/{id}', 'adminController@del_disease')->name('del_disease');
 
      
         Route::post('/adminLogin', 'adminController@adminLogin')->name('adminLogin');

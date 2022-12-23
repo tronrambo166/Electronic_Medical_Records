@@ -9,6 +9,7 @@ use Hash;
 use App\Models\Patient;
 use App\Models\Procedures;
 use App\Models\Treatment;
+use App\Models\Diseases;
 use App\Models\User;
 use Mail;
 use Session;
@@ -17,7 +18,7 @@ class AdminController extends Controller
 
      public function logout()
     {  
-        return redirect('admin/login'); 
+        return redirect('admin/login');
  }
 
      public function index_admin()
@@ -36,10 +37,20 @@ class AdminController extends Controller
 
  public function treatments()
     {       
-        $location= Treatment::get();   
+        $location= Treatment::get(); 
+        $diseases= Diseases::get();  
+        $procedure= Procedures::get();
           //$cat= DB:: table('categories')->get();
 
-        return view('admin.treatments', compact('location'));       
+        return view('admin.treatments', compact('location','diseases','procedure'));       
+    }
+
+    public function diseases()
+    {       
+        $location= Diseases::get();   
+          //$cat= DB:: table('categories')->get();
+
+        return view('admin.diseases', compact('location'));       
     }
 
 public function procedures()
@@ -62,21 +73,16 @@ public function procedures()
 
     public function doctors()
     {       
-        $Procedures= doctors::get();
-        $Procedures= hospitals::get(); 
-        $Procedures= clinics::get(); 
-        $Procedures= locations::get(); 
-        $Procedures= categories::get();    
-          //$cat= DB:: table('categories')->get();
+        $doctor= User::get();
 
-  return view('admin.doctor-list', compact('hospital','clinic','location','category','doctor'));       
+  return view('admin.doctor-list', compact('doctor'));       
     }
 
 
 
 
  // Locations/Treatment
-public function add_location(Request $hos)
+public function add_treatment(Request $hos)
     {           
           $name=$hos->t_name;
           $disease_id=$hos->disease_id;
@@ -103,6 +109,31 @@ public function add_location(Request $hos)
     }
       
 
+
+
+public function up_treatment(Request $hos)
+    {           
+        $id=$hos->id;
+       //locations::where('id', 1)->update(['name' => $name, 'location' => $location]);
+       Treatment::where('id',$id)->update($hos->except(['_token']));
+
+       return back()->with('success', "Updated!"); 
+
+}
+
+
+ public function del_treatment($id)
+    {           
+        $deleted = Treatment::where('id', $id)->delete();
+       return back()->with('success', "Deleted!"); 
+ }
+
+ // Locations
+
+
+
+
+//PROC
       public function add_procedures(Request $hos)
     {           
           $proc_name=$hos->proc_name;
@@ -119,39 +150,71 @@ public function add_location(Request $hos)
          return back()->with('success', "Added!"); 
     }
 
-
-
-public function up_location(Request $hos)
+    public function up_procedure(Request $hos)
     {           
-         $id=$hos->id;
+        $id=$hos->id;
        //locations::where('id', 1)->update(['name' => $name, 'location' => $location]);
-       locations::where('id',$id)->update($hos->except(['_token']));
+       Procedures::where('id',$id)->update($hos->except(['_token']));
 
-        //SINGLE IMG
-          if($hos->image!=''){
-          $image=$hos->file('image');
-          $uniqid=hexdec(uniqid());
-          $ext=strtolower($image->getClientOriginalExtension());
-          $create_name=$uniqid.'.'.$ext; 
-          $loc='assets_admin/img/locations';
-          $image->move($loc, $create_name);
-
-          $datas['image']=$create_name;
-       DB::table('locations')->where('id',$id)->update($datas);
-       return back()->with('success', "Brand Added!"); 
- }
- return back()->with('success', "Brand Added!"); 
+       return back()->with('success', "Updated!"); 
 
 }
 
 
- public function del_location($id)
+ public function del_procedure($id)
     {           
-        $deleted = locations::where('id', $id)->delete();
-       return back()->with('success', "Brand Added!"); 
+        $deleted = Procedures::where('id', $id)->delete();
+       return back()->with('success', "Deleted!"); 
  }
 
- // Locations
+ //PROC
+
+
+
+
+ // Diseases
+public function add_disease(Request $hos)
+    {           
+          $d_name=$hos->d_name;
+          $procedure_name=$hos->procedure_name;
+          $sym_a=$hos->sym_a;
+          $sym_b=$hos->sym_b;
+          $sym_c=$hos->sym_c;
+          $sym_d=$hos->sym_d;
+          $sym_e=$hos->sym_e;
+
+          $location = Diseases::create([
+          'd_name' =>  $d_name,
+          'sym_a' =>  $sym_a,
+          'sym_b' =>  $sym_b,
+          'sym_c' =>  $sym_c,
+          'sym_d' =>  $sym_d,
+          'sym_e' =>  $sym_e
+      ]);
+         return back()->with('success', "Added!"); 
+    }
+      
+
+
+
+public function up_disease(Request $hos)
+    {           
+         $id=$hos->id;
+       //locations::where('id', 1)->update(['name' => $name, 'location' => $location]);
+       Diseases::where('id',$id)->update($hos->except(['_token']));
+
+       return back()->with('success', "Updated!"); 
+
+}
+
+
+ public function del_disease($id)
+    {           
+        $deleted = Diseases::where('id', $id)->delete();
+       return back()->with('success', "Deleted!"); 
+ }
+
+ // Diseases
 
 
 
@@ -274,76 +337,6 @@ public function up_doctor(Request $hos)
  }
 
  // Doctors
-
-
-
-
- // Categories
-public function add_category(Request $hos)
-    {           
-          $name=$hos->name; 
-            //SINGLE IMG
-          if($hos->image!=''){
-          $image=$hos->file('image');
-          $uniqid=hexdec(uniqid());
-          $ext=strtolower($image->getClientOriginalExtension());
-          $create_name=$uniqid.'.'.$ext; 
-          $loc='assets_admin/img/specialities';
-          $image->move($loc, $create_name);
-          //DB::table('products')->where('Id',$id)->update($datas);
-
-          $hospitals = categories::create([
-          'name' =>  $name,
-          'image' =>  $create_name,
-          ]);
-
-         return back()->with('success', "Brand Added!"); 
-    }
-
-         $hospitals = categories::create([
-          'name' =>  $name,
-          ]);
-      return back()->with('success', "Brand Added!"); 
- 
-    }
-
-
-
-
-
-public function up_category(Request $hos)
-    {           
-         $id=$hos->id;
-       //locations::where('id', 1)->update(['name' => $name, 'location' => $location]);
-       categories::where('id',$id)->update($hos->except(['_token']));
-        //SINGLE IMG
-          if($hos->image!=''){
-          $image=$hos->file('image');
-          $uniqid=hexdec(uniqid());
-          $ext=strtolower($image->getClientOriginalExtension());
-          $create_name=$uniqid.'.'.$ext; 
-          $loc='assets_admin/img/specialities';
-          $image->move($loc, $create_name);
-
-          $datas['image']=$create_name;
-       DB::table('categories')->where('id',$id)->update($datas);
-       return back()->with('success', "Brand Added!"); 
- }
-
- return back()->with('success', "Brand Added!"); 
-       
- }
-
- public function del_category($id)
-    {           
-       $deleted = categories::where('id', $id)->delete();
-       return back()->with('success', "Brand Added!"); 
- }
-
- // Categories
-
-
-
 
 
 

@@ -42,16 +42,20 @@
       </li>
 
       <li class="nav-item ">
-        <a class="nav-link text-light font-weight-bold" href="home">Home </a>
+        <a class="{{ Request::is('home') ? 'text-success' : 'text-light' }}
+        nav-link font-weight-bold" href="home">Home </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link  text-light font-weight-bold" href="calendar">Calendar</a>
+        <a class=" {{ Request::is('calendar') ? 'text-success' : 'text-light' }}
+        nav-link font-weight-bold" href="calendar">Calendar</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link  text-light font-weight-bold" href="messages">Messages</a>
+        <a class="{{ Request::is('messages') ? 'text-success' : 'text-light' }}
+        nav-link   font-weight-bold" href="messages">Messages</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link  text-light font-weight-bold" href="patient">Patient</a>
+        <a class="{{ Request::is('patient') ? 'text-success' : 'text-light' }}
+        nav-link font-weight-bold" href="patient">Patient</a>
       </li>
 
     </ul>
@@ -105,7 +109,7 @@
         
         <footer>
             <div class="row  bg-dark fixed-bottom">
-                <p class="m-auto font-italic text-light py-3">&copy; Copyright 2020. Radio Monitoring, All Rights Reserved</p>
+                <p class="small m-auto  text-secondary py-3">&copy; Copyright 2020. EMR, All Rights Reserved</p>
             </div>
         </footer>
         

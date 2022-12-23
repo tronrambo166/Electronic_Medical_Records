@@ -53,7 +53,7 @@
 															<a class="btn btn-sm bg-success-light" data-toggle="modal" href="#edit_specialities_details{{$l->id}}">
 																<i class="fe fe-pencil"></i> Edit
 															</a>
-							<a onclick="return confirm('Are you sure...?') "  href="{{route('del_category',$l->id)}}" class="btn btn-sm bg-danger-light">
+							<a onclick="return confirm('Are you sure...?') "  href="{{route('del_procedure',$l->id)}}" class="btn btn-sm bg-danger-light">
 																<i class="fe fe-trash"></i> Delete
 															</a>
 														</div>
@@ -79,14 +79,14 @@
 				<div class="modal-dialog modal-dialog-centered" role="document" >
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title">Edit Category</h5>
+							<h5 class="modal-title">Edit Procedure</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
 						<div class="modal-body">
 							
-							<form action="{{route('up_category')}}"  method="post" enctype="multipart/form-data">
+							<form action="{{route('up_procedure')}}"  method="post" enctype="multipart/form-data">
 								@csrf
 							<input  name="id" type="number" hidden value="{{$l->id}}" class="form-control">
 								<div class="row form-row">
@@ -123,7 +123,7 @@
 				<div class="modal-dialog modal-dialog-centered" role="document" >
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title">Add Clinic</h5>
+							<h5 class="modal-title">Add Procedure</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
