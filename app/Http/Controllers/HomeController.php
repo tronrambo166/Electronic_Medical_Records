@@ -35,13 +35,15 @@ class HomeController extends Controller
 
 
     public function home() {
-    $patient = Patient::get();
+    $id=Auth::id();
+    $patient = Patient::where('hcp_id',$id)->get();
     return view('home', compact('patient'));
     }
 
 
   public function patient() {
-    $patient = Patient::get();
+    $id=Auth::id();
+    $patient = Patient::where('hcp_id',$id)->get();
     return view('patients', compact('patient'));
      }
 
@@ -126,7 +128,7 @@ public function add_patientP(Request $hos)
           $uniqid=hexdec(uniqid());
           $ext=strtolower($image->getClientOriginalExtension());
           $create_name=$uniqid.'.'.$ext; 
-          $loc='images/hcp';
+          $loc='images/patients';
           $image->move($loc, $create_name);
           $image_name =  $create_name;
           }

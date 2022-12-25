@@ -8,10 +8,10 @@
 					<div class="page-header">
 						<div class="row">
 							<div class="col-sm-7 col-auto">
-								<h3 class="page-title">Locations</h3>
+								<h3 class="page-title">Disease</h3>
 								<ul class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index">Dashboard</a></li>
-									<li class="breadcrumb-item active">Locations</li>
+									<li class="breadcrumb-item active">Disease</li>
 								</ul>
 							</div>
 							<div class="col-sm-5 col">

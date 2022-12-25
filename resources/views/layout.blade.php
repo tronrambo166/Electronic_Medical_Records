@@ -6,11 +6,12 @@
     <title>Electronic Medical Records System</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.2/js/all.min.js" crossorigin="anonymous"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 	
     <link rel="stylesheet" type="text/css" href="style.css">
    
@@ -69,7 +70,7 @@
                   src="@if('false'!==false)  @else assets_admin/img/patients/ @endif"
                    width="31" alt=""> -->
                    <img src="images/hcp/{{$photo}}" class="mr-2 rounded-circle" width="45px" height="45px"> 
-                </span> {{Auth::user()->name}} 
+                </span> {{Auth::user()->fname}} 
               </a>
               <div class="dropdown-menu dropdown-menu-right">
                 <div class="user-header">  

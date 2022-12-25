@@ -42,7 +42,7 @@
 	
 		    <form action="{{route('up_patient')}}"  method="post" enctype="multipart/form-data">
 		    @csrf	
-		    <input type="number" name="id" value="{{$p->id}}">
+		    <input hidden type="number" name="id" value="{{$p->id}}">
 							
 							
 		    	<div class="row form-group">

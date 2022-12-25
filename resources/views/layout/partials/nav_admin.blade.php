@@ -1,4 +1,5 @@
 <!-- Sidebar -->
+@if(Session::has('admin'))
 <div class="sidebar mt-2" id="sidebar" style="background-color:#e6eaf19e;">
                 <div class="sidebar-inner slimscroll">
 					<div id="sidebar-menu" class="sidebar-menu">
@@ -25,9 +26,9 @@
 							</li>
 
 
-                          <li  class="{{ Request::is('admin/reports') ? 'active' : '' }}"> 
+                         <!-- <li  class="{{ Request::is('admin/reports') ? 'active' : '' }}"> 
 								<a class="text-dark" href="locations"><i class=" fe fe-layout"></i> <span>Lab Reports</span></a>
-							</li>
+							</li> -->
 
 
 							<li  class="{{ Request::is('admin/doctor-list') ? 'active' : '' }}"> 
@@ -52,4 +53,5 @@
 					</div>
                 </div>
             </div>
+            @endif
 			<!-- /Sidebar -->

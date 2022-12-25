@@ -91,10 +91,10 @@
 
 		    	<div class="row form-group">
 
-		    	<div class="col-sm-2"><label class="small" for="password"><strong>Respitory Rate</strong></label></div>
+		    	<div class="col-sm-2"><label class="small" for="password"><strong>Respiration Rate</strong></label></div>
 		    		<div class="col-sm-1"></div>
 		    		<div class="col-sm-2"> 
-					<input required="" class="form-control form-group" type="text" name="resp_rate" id="password" placeholder="Respitory Rate"  /> 
+					<input required="" class="form-control form-group" type="text" name="resp_rate" id="password" placeholder="Respiration Rate"  /> 
 					</div>
 
 					<div class="col-sm-1"></div>

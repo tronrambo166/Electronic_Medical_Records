@@ -59,8 +59,8 @@
 											</div>
 											<div class="col-12 col-md-6">
 												<div class="form-group">
-													<label>First Name</label>
-													<input name="name" value="{{$hcp['name']}}" type="text" class="form-control" >
+													<label> Name</label>
+													<input name="name" value="{{$hcp['fname']}} {{$hcp['lname']}}" type="text" class="form-control" >
 												</div>
 											</div>
 											
@@ -70,6 +70,13 @@
 												<div class="form-group">
 													<label>Email</label>
 													<input name="email"  value="{{$hcp['email']}}" type="email" class="form-control" >
+												</div>
+											</div>
+
+											<div class="col-12 col-md-6">
+												<div class="form-group">
+													<label>HCP ID</label>
+													<input readonly name="id"  value="{{$hcp['id']}}" type="email" class="form-control" >
 												</div>
 											</div>
 										

@@ -44,7 +44,7 @@
 							</div>
 						</div>
 						
-						<a href="{{route('logout')}}" class="dropdown-item" href="login">Logout</a>
+						<a href="{{route('logoutA')}}" class="dropdown-item" href="login">Logout</a>
 					</div>
 				</li>
 				<!-- /User Menu -->

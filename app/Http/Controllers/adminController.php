@@ -18,6 +18,8 @@ class AdminController extends Controller
 
      public function logout()
     {  
+        Session::forget('admin');
+        Session::save();
         return redirect('admin/login');
  }
 

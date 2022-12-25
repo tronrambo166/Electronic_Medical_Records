@@ -56,7 +56,7 @@ Route::post('reset/{remail}', 'testController@reset')->name('reset');
 Route::Group(['prefix' => 'admin'], function () { 
     
     Route::get('/index_admin','adminController@index_admin')->name('index_admin');
-    Route::get('/logout','adminController@logout')->name('logout');
+    Route::get('/logoutA','adminController@logout')->name('logoutA');
 
         
         Route::get('/patient-list', 'adminController@patients')->name('patient-list');
