@@ -131,12 +131,12 @@
 
      <div class=" col-sm-1 mr-1 ml-4 px-0">
      <a href="" class="text-dark text-center" data-html="true" data-toggle="tooltip" data-placement="top"title="<b>Action history</b>"
-      ><i class="material-icons" style="font-size:36px">assignment</i> <span class="icons small text-center">Actions</span></a>
+      ><i class="material-icons" style="font-size:36px">assignment</i> <span class="icons small text-center d-block">Actions</span></a>
      </div>
 
      <div class=" col-sm-1 mx-1 px-0">
       <a href="" class="text-dark text-center" data-html="true" data-toggle="tooltip" data-placement="top"title="<b>Patient history</b>"
-      ><i class="fa fa-history fa-2x icon-margin" aria-hidden="true"></i> <span class="icons small text-center">History</span></a>
+      ><i class="fa fa-history fa-2x icon-margin" aria-hidden="true"></i> <span class="icons small text-center d-block">History</span></a>
      </div>
 
 <div class=" col-sm-1 mx-1 px-0">
@@ -151,17 +151,17 @@
 
 <div class=" col-sm-1 mx-1 px-0">
      <p class="text-dark text-center" data-html="true" data-toggle="tooltip" data-placement="top"title="<b>Reports & flowsheets</b>"
-      ><i class="fa fa-chart-line fa-2x icon-margin" aria-hidden="true"></i> <span class="icons small text-center">FLowsheets</span></p>
+      ><i class="fa fa-chart-line fa-2x icon-margin" aria-hidden="true"></i> <span class="icons small text-center d-block">FLowsheets</span></p>
      </div>
 
 <div class=" col-sm-1 mx-1 px-0">
      <p class="text-dark text-center" data-html="true" data-toggle="tooltip" data-placement="top"title="<b>Lab results & reports</b>"
-      ><i class="fa fa-flask fa-2x icon-margin" aria-hidden="true"></i> <span class="icons small text-center">Labratory</span></p>
+      ><i class="fa fa-flask fa-2x icon-margin" aria-hidden="true"></i> <span class="icons small text-center d-block">Labratory</span></p>
      </div>
 
 <div class=" col-sm-1 mx-1 px-0">
      <a href="" class="text-dark text-center" data-html="true" data-toggle="tooltip" data-placement="top"title="<b>Image files</b>"
-      ><i class="material-icons" style="font-size:36px">camera_roll</i> <span class="icons small text-center">Imaging</span></a>
+      ><i class="material-icons" style="font-size:36px">camera_roll</i> <span class="icons small text-center d-block">Imaging</span></a>
      </div>
 
 <div class=" col-sm-1 mx-1 px-0">
