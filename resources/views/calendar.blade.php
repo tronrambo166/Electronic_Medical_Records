@@ -47,10 +47,11 @@
                 <p>
                     <label>Category: </label>
                     <select name="categorie" class="form-control">
-                        <?php
+                        <?php 
                      foreach($calendar->getCategories() as $categorie)
                      {
-                        $_SESSION['filter'] = str_replace('&amp;', '&', $_SESSION['filter']);
+                        //if(isset($_SESSION['filter']))
+                           $_SESSION['filter'] = str_replace('&amp;', '&', $_SESSION['filter']);
                         echo '<option value="'.$categorie.'">'.$categorie.'</option>';
                      }
                         ?>
