@@ -20,11 +20,12 @@
                 <ul class="d-block row breadcrumb mx-5 mr-5">
                   <div class="row">
                     <div class="col-sm-1"></div>
-                    <div class="col-sm-5"> <h3 class="page-title">Patient Details</h3></div>
-                     <div class="col-sm-6"><h6 class="page-title">Last Visited: {{$patient->last_visit}} </h6></div>  
-                  </div>
-                 
-                 
+                    <div class="col-sm-3"> <h3 class="page-title">Patient Details</h3></div>
+                     <div class="col-sm-5"><h6 class="page-title">Last Visited: {{$patient->last_visit}} </h6></div>  
+                     <div class="col-sm-3 ">
+                      <a class="small float-right btn btn-info" href="{{route('report',$patient->id)}}">Exam</a>
+                     </div>
+                  </div>   
                 </ul>
               </div>
               

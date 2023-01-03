@@ -4,7 +4,7 @@
 	define('DB_HOST', ''); 
 	define('DB_USERNAME', 'root'); 
 	define('DB_PASSWORD', ''); 
-	define('DATABASE', 'calendar'); 
+	define('DATABASE', 'emr'); 
 	define('TABLE', 'calendar');
 	define('USERS_TABLE', 'users');
 	

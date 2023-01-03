@@ -9,6 +9,9 @@ use App\Models\User;
 use App\Models\Patient;
 use App\Models\Procedures;
 use App\Models\Treatment;
+use App\Models\Messages;
+use App\Models\Reminders;
+use App\Reports\MyReport;
 use Auth;
 
 class HomeController extends Controller
@@ -54,13 +57,71 @@ class HomeController extends Controller
 
 
   public function messages() {
-    return view('messages');
+    $user_id = Auth::id();
+    $messages = Messages::get();
+    $reminder = Reminders::where('user_id',$user_id)->get();
+    return view('messages',compact('messages','reminder','user_id'));
 }
 
+
+ public function send_msg(Request $req) {
+    $user_id = Auth::id();
+    $user = User::find($user_id);
+    $user_name = $user['name'];
+    $message = $req->text;
+
+    Messages::create([
+        'USER_ID' => $user_id,
+        'user_name' => $user_name,
+        'message' => $message
+    ]);
+    Session::put('show_div','country_div');
+    Session::put('success', "Sent!"); 
+    Session::save();
+    return redirect('messages');
+}
+
+
+public function add_rem(Request $req) {
+    $user_id = Auth::id();
+    $reminder = $req->reminder;
+
+    Reminders::create([
+        'user_id' => $user_id,
+        'reminder' => $reminder
+
+    ]);
+    Session::put('show_div','gender_div');
+    Session::put('success', "Added!"); 
+    return redirect('messages');
+}
+
+public function del_msg($id)
+{           
+        $deleted = Messages::where('id', $id)->delete();
+         Session::put('show_div','country_div');
+       return back()->with('success', "Deleted!");
+ }
+
+
+ public function del_reminder($id)
+{           
+        $deleted = Reminders::where('id', $id)->delete();
+        Session::put('show_div','gender_div');
+       return back()->with('success', "Deleted!"); 
+ }
 
 
   public function calendar() {
     return view('calendar');
+}
+
+  public function report($id) {
+       // $report = new MyReport;
+        //$report->run();
+        //return view("report",["report"=>$report]);
+         $patient = Patient::find($id);
+         return view('report', compact('patient'));
 }
 
   public function profile_hcp() {

@@ -37,6 +37,7 @@
 			
 			for($i = 0; $row = $this->fetch_row($result); $i++)
 			{
+			   //if($row['user_id'] == 1)
 			   $result_array[$i] = $row; 
 			}
 			

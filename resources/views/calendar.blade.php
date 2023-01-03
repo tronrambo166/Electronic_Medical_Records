@@ -6,7 +6,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Ajax Full Featured Calendar 5</title>
+    <title>Calendar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ajax Full Featured Calendar 5">
     <meta name="author" content="Paulo Regina">
@@ -17,10 +17,90 @@
     <link href="calendar5/lib/spectrum/spectrum.css" rel="stylesheet">
     <link href="calendar5/lib/flatpickr/flatpickr.min.css" rel="stylesheet">
    <link href="calendar5/css/style.css" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   </head>
-<body>
+<body class="p-0">
 
-    <!---------------------------------------------- CALENDAR MODALs ---------------------------------------------->
+
+    <!-- Layout -->
+<div class="container-fluid mt-0 pt-0">
+     <div class="row mb-2" style="background:#090917;">
+
+@if(Auth::check())
+@php $photo = Auth::user()->image; @endphp
+<nav class=" navbar navbar-expand-lg navbar-light w-100 py-0">
+  
+  <div class=" collapse navbar-collapse " id="navbarNav">
+    <ul class="navbar-nav links">
+      <li class="nav-item h4  text-light  mr-1 ">
+       <img src="images/logo.png" class="rounded-circle" width="70px" height="55px"> 
+      </li>
+
+      <li class="nav-item h4  text-light  mr-5 mt-2">
+       <h3>EMR</h3>
+      </li>
+
+      <li class="nav-item ">
+        <a class="{{ Request::is('home') ? 'text-success' : 'text-light' }}
+        nav-link font-weight-bold" href="home">Home </a>
+      </li>
+      <li class="nav-item">
+        <a class=" {{ Request::is('calendar') ? 'text-success' : 'text-light' }}
+        nav-link font-weight-bold" href="calendar">Calendar</a>
+      </li>
+      <li class="nav-item">
+        <a class="{{ Request::is('messages') ? 'text-success' : 'text-light' }}
+        nav-link   font-weight-bold" href="messages">Messages</a>
+      </li>
+      <li class="nav-item">
+        <a class="{{ Request::is('patient') ? 'text-success' : 'text-light' }}
+        nav-link font-weight-bold" href="patient">Patient</a>
+      </li>
+
+    </ul>
+
+<ul class="ml-auto">
+ 
+     <li class="nav-item dropdown has-arrow logged-item">
+              <a href="#" class="text-light dropdown-toggle dropdown-icon nav-link" data-toggle="dropdown">
+                <span class="user-img">
+                 <!-- <img class="rounded-circle" 
+                  src="@if('false'!==false)  @else assets_admin/img/patients/ @endif"
+                   width="31" alt=""> -->
+                   <img src="images/hcp/{{$photo}}" class="mr-2 rounded-circle" width="45px" height="45px"> 
+                </span> {{Auth::user()->fname}} 
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <div class="user-header">  
+               
+                </div>
+
+                 <a class="dropdown-item pl-2" href="{{route('profile_settings')}}" >
+                        <button style="background: none;border: none;font-size: 15px;"class="  " type="submit">Profile Settings </button> </a>
+                        
+
+                <a class=" dropdown-item pl-3" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+
+              </div>
+            </li>
+            
+</ul>
+@endif
+
+  </div>
+</nav>
+</div>
+
+    <!-- Layout -->
 
     <!-- Calendar Modal -->
     <div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -50,7 +130,7 @@
                         <?php 
                      foreach($calendar->getCategories() as $categorie)
                      {
-                        //if(isset($_SESSION['filter']))
+                        if(isset($_SESSION['filter']))
                            $_SESSION['filter'] = str_replace('&amp;', '&', $_SESSION['filter']);
                         echo '<option value="'.$categorie.'">'.$categorie.'</option>';
                      }
@@ -201,9 +281,9 @@
 
     <!---------------------------------------------- THEME ---------------------------------------------->
 
-   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+   <nav class="navbar  navbar-expand-lg navbar-light bg-light">
       <div class="container">
-         <a class="navbar-brand" href="index.php">Ajax Full Featured Calendar 5</a>
+         <a class="navbar-brand" href="index.php">Calendar</a>
          <!-- search (required if you want to have search) -->
          <form id="search" class="d-flex">
             <input class="form-control me-2" type="text">
@@ -214,8 +294,8 @@
 
    <div class="container" style="margin-top: 80px;">
 
-      <a href="export.php" class="btn btn-warning float-end">Export</a>
-      <a href="#cal_import" class="btn btn-info float-end me-2" data-bs-toggle="modal" data-bs-target="#cal_import">Import</a>
+     <!-- <a href="export.php" class="btn btn-warning float-end">Export</a>
+      <a href="#cal_import" class="btn btn-info float-end me-2" data-bs-toggle="modal" data-bs-target="#cal_import">Import</a> -->
 
       <div class="clearfix"></div>
 
@@ -250,7 +330,18 @@
         </div>
     </div>
 
-    </div> <!-- /container -->
+    <div class="container-fluid px-0 ">
+       
+        
+        <footer>
+            <div class="row  bg-dark fixed-bottom">
+                <p class="small m-auto  text-secondary py-3">&copy; Copyright 2020. EMR, All Rights Reserved</p>
+            </div>
+        </footer>
+        
+    </div>
+
+    </div> <!-- /container --> </div>
 
    <script src="calendar5/lib/moment.js"></script>
     <script src="calendar5/lib/jquery.js"></script>

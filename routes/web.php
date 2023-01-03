@@ -39,10 +39,20 @@ Route::get('delete_patient/{id}', 'HomeController@delete_patient')->name('delete
 //Route::get('breakdown', 'HomeController@breakdown')->name('breakdown');
 Route::get('profile_settings', 'HomeController@profile_hcp')->name('profile_settings');
 
+Route::get('report-{id}', 'HomeController@report')->name('report');
+
 //POST ROUTES
 Route::post('profile_save', 'HomeController@profile_save')->name('profile_save');
 Route::post('add_patientP', 'HomeController@add_patientP')->name('add_patientP');
 Route::post('up_patient', 'HomeController@up_patient')->name('up_patient');
+
+//Message ROUTES
+Route::post('send_msg', 'HomeController@send_msg')->name('send_msg');
+Route::post('add_rem', 'HomeController@add_rem')->name('add_rem');
+Route::get('del_msg/{id}', 'HomeController@del_msg')->name('del_msg');
+Route::get('del_reminder/{id}', 'HomeController@del_reminder')->name('del_reminder');
+
+
 
 
 //Forget Password
