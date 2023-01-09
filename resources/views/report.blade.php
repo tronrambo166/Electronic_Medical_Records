@@ -9,6 +9,7 @@
     .icons{font-size: 11px;}
     .icon-margin{margin-bottom: 11px;}
       .smalls{ font-size:13px;}
+      .smalls2{ font-size:10px;}
       .h6{ font-size:13px;}
 
 
@@ -76,49 +77,51 @@
      </div> 
      </div> 
 
-
-     <div class="border card shadow row w-75 px-5 py-3 m-auto  border border-dark" style="background:aliceblue;">
+      <div class="card w-75   m-auto">
+     <div class=" shadow row w-100 py-1 mx-auto  border border-light" style="background:aliceblue;">
+      <div class="col-sm-9">
        <h5 class="my-3">Report</h5>
       
       <div>
       
      </div>
-     <?php
+<?php
+$bp = 95;//$patient->b_pressure;
+$hr = 90;//$patient->pulse_rate;
+$bt = $patient->b_temp;
  
 $dataPoints = array(
-  array("y" => 25, "label" => "Sunday"),
-  array("y" => 115, "label" => "Monday"),
-  array("y" => 25, "label" => "Tuesday"),
-  array("y" => 5, "label" => "Wednesday"),
-  array("y" => 10, "label" => "Thursday"),
-  array("y" => 0, "label" => "Friday"),
-  array("y" => 20, "label" => "Saturday")
+  array("y" => 150, "label" => "Sunday"),
+  array("y" => 160, "label" => "Monday"),
+  array("y" => 100, "label" => "Tuesday"),
+  array("y" => $bp, "label" => "Wednesday"),
+  array("y" => $bp, "label" => "Thursday"),
+  array("y" => 130, "label" => "Friday"),
+  array("y" => 150, "label" => "Saturday")
 );
 
 $dataPoints2 = array(
-  array("y" => 45, "label" => "Sunday"),
-  array("y" => 15, "label" => "Monday"),
-  array("y" => 45, "label" => "Tuesday"),
-  array("y" => 5, "label" => "Wednesday"),
-  array("y" => 40, "label" => "Thursday"),
-  array("y" => 44, "label" => "Friday"),
-  array("y" => 20, "label" => "Saturday")
+  array("y" => 77, "label" => "Sunday"),
+  array("y" => $hr, "label" => "Monday"),
+  array("y" => $hr, "label" => "Tuesday"),
+  array("y" => $hr, "label" => "Wednesday"),
+  array("y" => $hr, "label" => "Thursday"),
+  array("y" => $hr, "label" => "Friday"),
+  array("y" => 100, "label" => "Saturday")
 );
 
 $dataPoints3 = array(
-  array("y" => 155, "label" => "Sunday"),
-  array("y" => 55, "label" => "Monday"),
-  array("y" => 25, "label" => "Tuesday"),
-  array("y" => 25, "label" => "Wednesday"),
-  array("y" => 10, "label" => "Thursday"),
-  array("y" => 50, "label" => "Friday"),
-  array("y" => 20, "label" => "Saturday")
+  array("y" => $bt, "label" => "Sunday"),
+  array("y" => $bt, "label" => "Monday"),
+  array("y" => $bt, "label" => "Tuesday"),
+  array("y" => $bt, "label" => "Wednesday"),
+  array("y" => $bt, "label" => "Thursday"),
+  array("y" => $bt, "label" => "Friday"),
+  array("y" => $bt, "label" => "Saturday")
 );
  
 ?>
-<!DOCTYPE HTML>
-<html>
-<head>
+
 <script>
 window.onload = function () {
  
@@ -138,20 +141,22 @@ var chart = new CanvasJS.Chart("chartContainer", {
   },
   data: [{
     type: "line",
-    markerSize: 5,
+    markerSize: 3,
      name: "BP",
      showInLegend: true,
     dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
   },
   {
     type: "line",
-     name: "Male",
+     markerSize: 3,
+     name: "Heart rate",
      showInLegend: true,
     dataPoints: <?php echo json_encode($dataPoints2, JSON_NUMERIC_CHECK); ?>
   },
   {
     type: "line",
-     name: "Male",
+     markerSize: 3,
+     name: "Body temperature",
      showInLegend: true,
     dataPoints: <?php echo json_encode($dataPoints3, JSON_NUMERIC_CHECK); ?>
   }]
@@ -161,13 +166,52 @@ chart.render();
  
 }
 </script>
-</head>
-<body>
+
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+</div>
+
+<div class="col-sm-3">
+  <h6 class="" style="margin-top: 220px;">Blood Pressure</h6>
+   <div class="row " style="margin-top:10px;">
+    
+                      <div class="col-sm-4 link">
+                      <button  id="gender" class="font-weight-bold  btn btn-danger smalls2"   value="artist"> High <p class="m-0">161/100</p></button>  </div> 
+
+                       <div class="col-sm-4 link">
+                      <button  id="gender" class="font-weight-bold  btn btn-warning smalls2"   value="artist"> Low <p class="m-0">161/100</p></button>  </div>
+
+                       <div class="col-sm-4 link">
+                     <button  id="gender" class="font-weight-bold  btn btn-success smalls2"   value="artist"> Mean <p class="m-0">161/100</p></button> </div>                                 
+           
+             </div>   
+
+
+   <h6 class="my-3" >Heart Rate</h6>
+   <div class="row " style="margin-top:10px;">
+    
+                      <div class="col-sm-4 link">
+                      <button  style="width: 64px;" id="gender" class=" font-weight-bold  btn btn-danger smalls2"   value="artist"> High <p class="m-0">100</p></button>  </div> 
+
+                       <div class="col-sm-4 link">
+                      <button style="width: 64px;" id="gender" class="font-weight-bold  btn btn-warning smalls2"   value="artist"> Low <p class="m-0">58</p></button>  </div>
+
+                       <div class="col-sm-4 link">
+                     <button style="width: 64px;" id="gender" class="font-weight-bold  btn btn-success smalls2"   value="artist"> Mean <p class="m-0">70</p></button> </div>                                 
+           
+             </div>  
+
+</div>
+
+ </div>
+</div>
+
+
+<body>
+
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>                  
-     </div>
+    
 
 
      <div class="py-4"></div>
