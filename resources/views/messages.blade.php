@@ -44,13 +44,13 @@
                         <td><form class="" action="{{route('send_msg')}}" method="post"> @csrf
                          <div class="row">
                            <div class="col-sm-9 pr-0">
-                           <textarea required="" name="text" id="text" type="text" cols="10" rows="1" class="pr-0 form-control" placeholder="Write a message..."></textarea>
+                           <textarea style="font-size: 10px;margin-bottom: 0px;" required="" name="text" id="text" type="text" cols="10" rows="1" class="pr-0 form-control" placeholder="Write a message..."></textarea>
                            <small class="text-danger font-italic"></small>
                          </div>
 
 
                          <div class="col-sm-3 px-0"> 
-                         <input type="submit" class=" px-3 border border-dark  font-weight-bold  mt-2  text-dark " href="" name="shout" value="SEND" />
+                         <input type="submit" class="px-3 pb-1 border border-dark  font-weight-bold   text-dark " href="" name="shout" value="SEND" />
                          </div>
                          
                           </div>  </form></td>

@@ -58,7 +58,7 @@
 
        <div class="row artist_info  mt-3">
         <div class="col-sm-6">
-          <h5 class="h6 font-weight-bold d-inline">Last Visit: </h5> <p href="" class="d-inline my-2"> {{$patient->f_name}} {{$patient->l_name}} </p>
+          <h5 class="h6 font-weight-bold d-inline">Last Visit: </h5> <p href="" class="d-inline my-2"> {{$patient->last_visit}} </p>
         </div>
 
         <div class="col-sm-6">
@@ -70,7 +70,7 @@
 
        <div class="row artist_info  mt-3">
         <div class="col-sm-2 px-0">
-          <h5 class="h6 font-weight-bold d-inline"><i class="fa fa-stethoscope mr-1" aria-hidden="true"></i> </h5>  {{$patient->b_pressure}}
+          <h5 class="h6 ml-3 font-weight-bold d-inline"><i class="fa fa-stethoscope mr-1" aria-hidden="true"></i> </h5>  {{$patient->b_pressure}}
         </div>
 
        <div class="col-sm-2">
@@ -122,7 +122,7 @@
 
      <div class="w-75 px-5 py-3 m-auto  border border-dark" style="background:#d0d6dba3;">
        <h5 class="my-3">Summary</h5>
-      <p class="text-dark small font-weight-bold">sdhfs shdfsd dhsfjsjdf suemmee suemmee sdhfs shdfsd dhsfjsjdf suemmee suemmee sdhfs shdfsd dhsfjsjdf suemmee suemmee sdhfs shdfsd dhsfjsjdf suemmee suemmee</p>
+      <p class="text-dark small font-weight-bold">{{$patient->summery}}</p>
      </div>
 
 
