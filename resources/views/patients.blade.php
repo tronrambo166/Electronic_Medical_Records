@@ -10,7 +10,7 @@
 					<!-- Page Header -->
 					<div class="page-header">
 						<div class="row">
-							<div class="col-sm-10">
+							<div class="col-sm-8">
 								
 								<ul class="breadcrumb">
 									<h3 class="page-title">List of Patient</h3>
@@ -18,7 +18,25 @@
 							</div>
 							<div class="col-sm-2 col">
 								<a style="background: #224b6e;" href="{{route('add_patient')}}"  class="btn text-light float-right mt-2 font-weight-bold">Add New Patient</a>
+
 							</div>
+
+							<div class="col-sm-2">
+								<form action="{{route('addFromCsv')}}" 
+								method="post" enctype="multipart/form-data"> @csrf
+									Add from csv <input 
+                                    id="patient" 
+                                    name="patient" 
+                                    type="file" 
+                                    class="file-loading" 
+                                    accept="text/plain" 
+                                    data-show-upload="false" 
+                                    data-show-remove="true" 
+                                    data-show-caption="true">
+									<button class="py-0 btn btn-info mt-1" type="submit">Add</button>
+								</form>
+							</div>
+
 						</div>
 					</div>
 					<!-- /Page Header -->

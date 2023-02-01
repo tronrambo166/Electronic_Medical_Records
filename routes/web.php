@@ -26,13 +26,15 @@ Route::group(['middleware'=>['checkAuth']], function(){
 
 //Route::get('{anypath}', 'testController@home')->where('path', '.*');
 
-Auth::routes(); 
+Auth::routes();
 
 Route::get('home', 'HomeController@home');//->name('home');
 Route::get('calendar', 'HomeController@calendar')->name('calendar');
 Route::get('messages', 'HomeController@messages')->name('messages'); 
 Route::get('patient', 'HomeController@patient')->name('patient');
 Route::get('patient-single-{id}', 'HomeController@patient_single')->name('patient-single');
+
+Route::post('addFromCsv', 'HomeController@addFromCsv')->name('addFromCsv');
 Route::get('add_patient', 'HomeController@add_patient')->name('add_patient');
 Route::get('edit_patient-{id}', 'HomeController@edit_patient')->name('edit_patient');
 Route::get('delete_patient/{id}', 'HomeController@delete_patient')->name('delete_patient');

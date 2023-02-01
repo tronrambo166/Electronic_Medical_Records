@@ -117,9 +117,6 @@ public function del_msg($id)
 }
 
   public function report($id) {
-       // $report = new MyReport;
-        //$report->run();
-        //return view("report",["report"=>$report]);
          $patient = Patient::find($id);
          return view('report', compact('patient'));
 }
@@ -276,6 +273,55 @@ public function add_patient()
 
 
  //PATIENTS
+
+ //Patient CSV
+
+ public function addFromCsv(Request $request)
+    {           
+       $csv=$request->file('patient'); $i=0;
+       $file = fopen($csv,"r");
+        while(! feof($file))
+          {
+          //print_r(fgetcsv($file));
+          $patient = fgetcsv($file); 
+            //echo $patient[16]; exit;
+
+          //GET individual info & Insert
+
+           if($i>=3 && $i<=100){
+           $data = array([
+          'pat_id' =>  $patient[0],
+          'birthdate' =>  $patient[1],
+          'deathdate' =>  $patient[2],
+          'ssn' =>  $patient[3],
+          'drivers' =>  $patient[4],
+          'passport' =>  $patient[5],
+          'prefix' =>  $patient[6],
+          'f_name' =>  $patient[7],
+          'l_name' => $patient[8],
+          'suffix' =>  $patient[9],
+          'm_name' =>  $patient[10],
+          'marital' =>  $patient[11],
+          'race' =>  $patient[12],
+          'ethnicity' =>  $patient[13],
+          'gender' =>  $patient[14],
+          'birthplace' =>  $patient[15],
+          'address' =>  $patient[16]
+              ]);
+                   
+           DB::table('patientscsv')->insert($data);
+           } $i++;
+
+           if($i>=100) break;
+
+          //GET individual info
+          }
+        fclose($file); 
+
+        Session::put('success',"Pateint Saved");
+        return redirect('patient');  
+    }
+
 
 
 //END CLASS
