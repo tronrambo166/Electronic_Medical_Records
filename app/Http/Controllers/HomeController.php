@@ -39,14 +39,14 @@ class HomeController extends Controller
 
     public function home() {
     $id=Auth::id();
-    $patient = Patient::where('hcp_id',$id)->get();
+    $patient = DB::table('patientscsv')->get();//Patient::where('hcp_id',$id)->get();
     return view('home', compact('patient'));
     }
 
 
   public function patient() {
     $id=Auth::id();
-    $patient = Patient::where('hcp_id',$id)->get();
+    $patient = DB::table('patientscsv')->get();//= Patient::where('hcp_id',$id)->get();
     return view('patients', compact('patient'));
      }
 
@@ -287,8 +287,11 @@ public function add_patient()
             //echo $patient[16]; exit;
 
           //GET individual info & Insert
+          for($j=0;$j<17;$j++)
+          if(!isset($patient[$j]))
+            $patient[$j]='';
 
-           if($i>=3 && $i<=100){
+           if($i>=3 && $i<=1000){
            $data = array([
           'pat_id' =>  $patient[0],
           'birthdate' =>  $patient[1],
@@ -312,7 +315,7 @@ public function add_patient()
            DB::table('patientscsv')->insert($data);
            } $i++;
 
-           if($i>=100) break;
+           if($i>=1000) break;
 
           //GET individual info
           }

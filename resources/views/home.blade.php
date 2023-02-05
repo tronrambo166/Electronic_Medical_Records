@@ -38,31 +38,23 @@
                     <table class="text-center datatable table table-hover table-center mb-0" id="myTable">
                       <thead>
                         <tr>
-                          <th>Patient ID</th>
+                      <th>Patient ID</th>
                           <th>First Name</th>
                           <th>Middle Name</th>
                           <th>Last Name</th>
-                          <th>Body Temperature</th>
-                          <th>Pulse Rate</th>
-                          <th>Respitory Rate</th>
-                          <th>Blood Pressure</th>
-                          <th>Weight</th>
-                          <th>Height</th>
-                          <th>Main Diagnosis</th>
-                          <th>Prev Diagnosis</th>
-                          <th>Treatment</th>
-                          <th>Procedures</th>
-                          <th>Lab Record Id</th>
-                          <th>Last Visit</th>
-                          <th>Summery</th>
-                          <th>Hcp Id</th>
-                          <th>Insurance</th>
-                          <th>Pharmacy</th>
-                          <th>Email</th>
+                          <th>Birthdate</th>
+                          <th>Deathdate</th>
+                          <th>SSN</th>
+                          <th>Drivers</th>
+                          <th>Passport</th>
+                          <th>Prefix</th>
+                          <th>Suffix</th>
+                          <th>Marital</th>
+                          <th>Race</th>
+                          <th>Ethnicity</th>
+                          <th>Gender</th>
+                          <th>Birthplace</th>
                           <th>Address</th>
-                          <th>DOB</th>
-                          <th>Phone</th>
-                          <th>Symptoms</th>
                           <th>Action</th>
                           
                         </tr>
@@ -70,41 +62,27 @@
                       <tbody>
                         @foreach($patient as $p)
                         <tr>
-                          <td>#PT-{{$p->id}}</td>
-                          <td>
-                            <h6 class="table-avatar">
                           
-                  <a href="{{route('patient-single', $p->id)}}">
-                    <img width="30px" height="30px" class="avatar-img rounded-circle" src="images/patients/{{$p->image}}" alt="User Image"> <b class="small">{{$p->f_name}}</b> 
-                </a>
-                            
-                            </h6>
-                          </td>
 
+                <td>{{$p->pat_id}}</td>
+                <td>{{$p->f_name}}</td>
                 <td>{{$p->m_name}}</td>
                 <td>{{$p->l_name}}</td>
-                <td>{{$p->b_temp}}</td>
-                <td>{{$p->pulse_rate}}</td>
-                <td>{{$p->resp_rate}}</td>
-                <td>{{$p->b_pressure}}</td>
-                <td>{{$p->weight}}</td>
-                <td>{{$p->height}}</td>
+  
+                <td>{{$p->birthdate}}</td>
+                <td>{{$p->deathdate}}</td>
+                <td>{{$p->ssn}}</td>
+                <td>{{$p->drivers}}</td>
                 
-                <td>{{$p->main_diag}}</td>
-                <td>{{$p->prev_diag}}</td>
-                <td>{{$p->treatment}}</td>
-                <td>{{$p->procedures}}</td>
-                <td>{{$p->lab_rec_id}}</td>
-                <td>{{$p->last_visit}}</td>
-                <td>{{$p->summery}}</td>
-                <td>{{$p->hcp_id}}</td>
-                <td>{{$p->insurance}}</td>
-                <td>{{$p->pharmacy}}</td>
-                <td>{{$p->email}}</td>
+                <td>{{$p->passport}}</td>
+                <td>{{$p->prefix}}</td>
+                <td>{{$p->suffix}}</td>
+                <td>{{$p->marital}}</td>
+                <td>{{$p->race}}</td>
+                <td>{{$p->ethnicity}}</td>
+                <td>{{$p->gender}}</td>
+                <td>{{$p->birthplace}}</td>
                 <td>{{$p->address}}</td>
-                <td>{{$p->dob}}</td>
-                <td>{{$p->phone}}</td>
-                <td>{{$p->symptoms}}</td>
                 
 
                 <td class="text-right"> 
@@ -140,7 +118,7 @@
       </div>
       <!-- /Page Wrapper -->
     
-        </div>
+        </div> <div class="py-5"></div>
     <!-- /Main Wrapper -->
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
