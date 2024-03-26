@@ -1,0 +1,65 @@
+.blog {
+  overflow: hidden;
+  .text-content {
+    h3 {
+      font-size: 40px !important;
+      padding-bottom: 15px;
+      letter-spacing: 2px;
+      span {
+        color: $base--color;
+      }
+    }
+    @media only screen and (max-width: 571px) {
+      h3 {
+        font-size: 30px !important;
+      }
+    }
+    p {
+      font-size: 17px !important;
+    }
+    .top-title-content {
+      color: $base--color;
+      font-size: 18px !important;
+      font-weight: 600;
+      letter-spacing: 3px;
+    }
+  }
+  .card {
+    overflow: hidden !important;
+    border-radius: 10px !important;
+    border: none !important;
+    box-shadow: 0px 0px 40px -2px rgba(207, 203, 203, 0.57);
+    .rating-color {
+      color: #fbc634 !important;
+    }
+    .title:hover {
+      color: $base--color !important;
+      transition: 0.5s;
+    }
+    img:hover {
+      transition: 0.5s;
+      transform: scale(1.1);
+    }
+    .icon {
+      color: $base--color;
+    }
+    .main-img {
+      height: 260px;
+      width: auto;
+    }
+    .author-content {
+      margin-bottom: 20px;
+      img {
+        width: 30px;
+        border-radius: 999px;
+        margin-right: 10px;
+      }
+    }
+    .link {
+      color: $common;
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+}

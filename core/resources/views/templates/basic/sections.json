@@ -1,0 +1,25 @@
+{
+
+    "footer": {
+        "builder": true,
+        "name": "Footer Section",
+        "no_selection": true,
+        "content": {
+
+            "information": "textarea",
+            "copy_right_text": "text"
+        }
+    },
+    "social_icon": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Social Icons",
+        "element": {
+            "title": "text",
+            "social_icon": "icon",
+            "url": "text",
+            "modal": true
+        }
+    }
+
+}

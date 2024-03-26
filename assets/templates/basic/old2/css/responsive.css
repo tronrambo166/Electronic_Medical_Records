@@ -1,0 +1,249 @@
+/* Extra Extra large devices (Extra large desktops, 1400px and up) */
+@media (min-width: 1400px) {}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1399.98px) {}
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .live_btn {
+        padding: 8px 20px;
+    }
+
+    .listing_btn {
+        padding: 8px 15px;
+    }
+
+    .search_btn {
+        padding: 10px 50px;
+    }
+
+    .map_icon {
+        margin-right: 180px;
+    }
+
+    .inner_form {
+        position: absolute;
+        bottom: 7px;
+        right: 123px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .live_btn {
+        padding: 8px 30px;
+    }
+
+    .listing_btn {
+        padding: 8px 15px;
+    }
+
+    .map_icon {
+        margin-right: 180px;
+    }
+
+    .inner_form {
+        bottom: 5px;
+        right: 17px;
+    }
+
+    input#search {
+        padding: 25px 40px;
+    }
+
+    .search_btn {
+        padding: 8px 40px;
+    }
+
+    .map_icon {
+        margin-right: 145px;
+    }
+
+    .map_icon i::after {
+        height: 35px;
+    }
+
+    input#search::placeholder {
+        font-size: 16px;
+    }
+
+    a.btn.search_btn.live_btn {
+        font-size: 17px;
+    }
+
+    .tabs {
+        padding: 25px;
+        padding-bottom: 25px;
+    }
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .live_btn {
+        padding: 5px 15px;
+    }
+
+    .inner_form {
+        bottom: 4px;
+        right: 16px;
+    }
+
+    input#search {
+        padding: 20px 20px;
+    }
+
+    .search_btn {
+        padding: 8px 40px;
+    }
+
+    .map_icon {
+        margin-right: 70px;
+    }
+
+    .map_icon i::after {
+        height: 35px;
+    }
+
+    input#search::placeholder {
+        font-size: 14px;
+    }
+
+    a.btn.search_btn.live_btn {
+        font-size: 16px;
+    }
+
+    .add {
+        display: none;
+    }
+
+    .listing_btn i {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .listing_btn {
+        padding: 3px 15px;
+    }
+
+    /* Tooltip */
+
+    .hovertext {
+        position: relative;
+    }
+
+    .hovertext:before {
+        content: attr(data-hover);
+        visibility: hidden;
+        opacity: 0;
+        width: 140px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px 0;
+        transition: opacity 1s ease-in-out;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 110%;
+    }
+
+    .hovertext:hover:before {
+        opacity: 1;
+        visibility: visible;
+    }
+    .property_title h2 {
+        font-size: 28px;
+    }
+
+    .tabs {
+        padding: 25px;
+        padding-bottom: 25px;
+    }
+
+    .tabs .content section h2, .tabs ul li label {
+        font-size: 15px;
+    }
+
+    ul.property_in li {
+        width: calc(100% / 2) !important;
+
+    }
+}
+
+    /* Extra small devices (portrait phones, less than 576px) */
+    @media (max-width: 575.98px) {
+        .live_btn {
+            padding: 8px 15px;
+        }
+
+        .map_icon {
+            display: none;
+        }
+
+        .inner_form {
+            bottom: 5px;
+            right: 17px;
+        }
+
+        input#search {
+            padding: 20px 20px;
+        }
+
+        .search_btn {
+            padding: 8px 20px;
+        }
+
+        .map_icon i::after {
+            top: 8%;
+            height: 40px;
+            left: 17%;
+        }
+
+        input#search::placeholder {
+            font-size: 14px;
+        }
+
+        a.btn.search_btn.live_btn {
+            font-size: 15px;
+        }
+
+        .live, .account_part {
+            justify-content: center !important;
+        }
+
+        .account_part {
+            margin-top: 15px;
+        }
+
+        .overview_title {
+            font-size: 18px;
+        }
+
+        .property_title h2 {
+            font-size: 22px;
+        }
+
+        .pro_details:nth-child(1) {
+            margin-right: 10px;
+        }
+        .pro_details {
+            margin-right: 0;
+        }
+
+        .tabs {
+            padding: 25px;
+            padding-bottom: 25px;
+        }
+
+        .tabs .content section h2, .tabs ul li label {
+            font-size: 14px;
+        }
+
+        ul.property_in li {
+            width: calc(100% / 2) !important;}
+
+}
