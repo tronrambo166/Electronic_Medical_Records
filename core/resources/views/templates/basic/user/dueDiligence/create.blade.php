@@ -24,7 +24,7 @@
                                     @csrf
                                     <div class="information">
                                         <div class="row">
-                                            <div class="form-group col-lg-4 col-md-4 col-sm-6 col-6">
+                                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-6">
                                                 <label for="inputListing">Choose Project</label>
                                                 <select id="inputListing" name="project" class="form-control">
                                                     <option value="">Select Project</option>
@@ -35,7 +35,7 @@
                                                 </select>
                                             </div>
                                             <div
-                                                class="form-group col-lg-4 col-md-4 col-sm-6 col-6 duration">
+                                                class="form-group col-lg-3 col-md-4 col-sm-6 col-6 duration">
                                                 <label for="inputDuration">Choose
                                                     Duration</label>
                                                     <select id="inputDuration" name="duration" class="form-control">
@@ -100,13 +100,33 @@
                                                     <option value="60">60 Days</option>
                                                 </select>
                                             </div>
+
+                                            
                                             <div
-                                                class="multi_modal verification col-lg-4 col-md-4 col-sm-12 col-12">
+                                                class="multi_modal verification col-lg-3 col-md-4 col-sm-12 col-12">
                                                 <label for="multi_modal" class="v_title">Verification Type</label>
                                                 <select id="multi_modal" name="verification_type[]" multiple>
                                                     <option value="legal">Legal</option>
                                                     <option value="video">Video</option>
-                                                    <option value="picture">Picture</option>
+                                                    <option value="Photo">Photo</option>
+                                                    <option value="Request VIP" class="w-50">Request VIP (360 live <br> monitoring with accessible URL)</option>
+                                                    
+                                                </select>
+                                            </div>
+
+
+                                            <div
+                                                class="multi_modal verification col-lg-3 col-md-4 col-sm-12 col-12">
+                                                <label for="multi_modal" class="v_title">Frequency of Updates</label>
+                                                <select id="inputDuration" name="duration" class="form-control">
+                                                    <option selected value="1">1 Day</option>
+                                                    <option value="Hourly updates">Hourly updates</option>
+                                                    <option value="Daily updates">Daily updates</option>
+                                                    <option value="Weekly updates">Weekly updates</option>
+                                                    <option value="Bi-Weekly updates">Bi-Weekly updates</option>
+                                                    <option value="Monthly updates">Monthly updates</option>
+                                                    <option value="Quarterly updates">Quarterly updates</option>
+                                                    
                                                 </select>
                                             </div>
 

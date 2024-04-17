@@ -10,8 +10,8 @@
                                 <thead>
                                 <tr class="custom-table-row">
                                     <th>Property Name</th>
-                                    <th>Duration</th>
                                     <th>Verification Type</th>
+                                    <th>Duration</th>
                                     <th style="width: 200px !important">Time & Date</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -23,15 +23,17 @@
 
                                         <td data-label="Property Name">{{ $data->property->title }}</td>
 
-                                        <td data-label="Duration">
-                                            {{ $data->duration }} Days
-                                        </td>
                                         <td data-label="Verification Type" class="d-flex justify-content-center">
                                             @foreach($data->verification_type as $key => $value)
                                             <span class="text--small badge font-weight-normal badge--success fw-bold mr-3" style="margin-right: 2px !important">{{ str_replace('_',' ',ucwords($value)) }}</span>
 
                                             @endforeach
                                         </td>
+
+                                        <td data-label="Duration">
+                                            {{ $data->duration }} Days
+                                        </td>
+                                        
                                         <td data-label="Time & Date">
                                             {{ diffForHumans($data->created_at) }}
                                          </td>

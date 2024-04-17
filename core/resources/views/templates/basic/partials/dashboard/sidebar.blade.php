@@ -5,7 +5,7 @@ $footer = getContent('footer.content', true)->data_values;
 <div class="sidebar">
     <div class="sidebar__inner">
         <div class="sidebar-top-inner">
-            <div class="sidebar__logo">
+            <div class="sidebar__logo text-center">
                 <a href="{{ route('home') }}" class="sidebar__main-logo">
                     <img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo">
                 </a>
@@ -39,7 +39,7 @@ $footer = getContent('footer.content', true)->data_values;
                     <li class="sidebar-menu-item {{ menuActive('user.my.listing.list') }}">
                         <a href="{{ route('user.my.listing.list') }}">
                             <i class="menu-icon lab la-buffer"></i>
-                             <span class="menu-title">My Project</span>
+                             <span class="menu-title">My Projects</span>
                         </a>
                     </li>
                     <li class="sidebar-menu-item {{ menuActive('user.diligence.list') }}">
@@ -48,12 +48,12 @@ $footer = getContent('footer.content', true)->data_values;
                             <span class="menu-title">Due Diligence</span>
                         </a>
                     </li>
-                    <li class="sidebar-menu-item {{ menuActive('user.remotevip.list') }}">
+                    <!-- <li class="sidebar-menu-item {{ menuActive('user.remotevip.list') }}">
                         <a href="{{ route('user.remotevip.list') }}">
                             <i class="menu-icon las la-award"></i>
                             <span class="menu-title">Request VIP</span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
