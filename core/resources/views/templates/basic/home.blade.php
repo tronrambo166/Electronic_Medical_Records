@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <form action="{{ route('user.property.search') }}" method="GET">
+                    <!-- <form action="{{ route('user.property.search') }}" method="GET">
                         @csrf
                         <input type="search" name="search" id="search" class="form-control"
                             placeholder="Enter Your Listing \ Property Location" />
@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </div>

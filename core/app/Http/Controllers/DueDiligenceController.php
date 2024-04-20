@@ -31,8 +31,11 @@ class DueDiligenceController extends Controller
         $user = Auth::user();
         $request->validate([
             'project' => 'required',
-            'duration' => 'required',
+            'day' => 'required',
+            'week' => 'required',
+            'month' => 'required',
             'verification_type' => 'required',
+            'FOU' => 'required'
         ]);
         $property = AddListing::findOrFail($request->project);
         if(!$property){
@@ -46,8 +49,9 @@ class DueDiligenceController extends Controller
 
         $in['user_id'] = $user->id;
         $in['property_id'] =  $property->id;
-        $in['duration'] =  $request->duration;
+        $in['duration'] =  $request->day.' days, '.$request->week.' weeks, '.$request->month.' months,'.;
         $in['verification_type'] = $request->verification_type;
+        $in['FOU'] = $request->FOU;
 
         $due = DeuDiligenc::create($in);
 

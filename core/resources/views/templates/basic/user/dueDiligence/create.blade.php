@@ -35,11 +35,12 @@
                                                 </select>
                                             </div>
                                             <div
-                                                class="form-group col-lg-3 col-md-4 col-sm-6 col-6 duration">
+                                                class="form-group col-lg-4 col-md-4 col-sm-6 col-6 duration">
                                                 <label for="inputDuration">Choose
                                                     Duration</label>
-                                                    <select id="inputDuration" name="duration" class="form-control">
-                                                    <option selected value="1">1 Day</option>
+                                                    <select style="width:30%;" id="inputDuration" name="day" class="form-control d-inline">
+                                                        <option selected value="1">0 Day</option>
+                                                    <option  value="1">1 Day</option>
                                                     <option value="2">2 Days</option>
                                                     <option value="3">3 Days</option>
                                                     <option value="4">4 Days</option>
@@ -68,36 +69,26 @@
                                                     <option value="28">28 Days</option>
                                                     <option value="29">29 Days</option>
                                                     <option value="30">30 Days</option>
-                                                    <option value="31">31 Days</option>
-                                                    <option value="32">32 Days</option>
-                                                    <option value="33">33 Days</option>
-                                                    <option value="34">34 Days</option>
-                                                    <option value="35">35 Days</option>
-                                                    <option value="36">36 Days</option>
-                                                    <option value="37">37 Days</option>
-                                                    <option value="38">38 Days</option>
-                                                    <option value="39">39 Days</option>
-                                                    <option value="40">40 Days</option>
-                                                    <option value="41">41 Days</option>
-                                                    <option value="42">42 Days</option>
-                                                    <option value="43">43 Days</option>
-                                                    <option value="44">44 Days</option>
-                                                    <option value="45">45 Days</option>
-                                                    <option value="46">46 Days</option>
-                                                    <option value="47">47 Days</option>
-                                                    <option value="48">48 Days</option>
-                                                    <option value="49">49 Days</option>
-                                                    <option value="50">50 Days</option>
-                                                    <option value="51">51 Days</option>
-                                                    <option value="52">52 Days</option>
-                                                    <option value="53">53 Days</option>
-                                                    <option value="54">54 Days</option>
-                                                    <option value="55">55 Days</option>
-                                                    <option value="56">56 Days</option>
-                                                    <option value="57">57 Days</option>
-                                                    <option value="58">58 Days</option>
-                                                    <option value="59">59 Days</option>
-                                                    <option value="60">60 Days</option>
+                                                </select>
+
+                                                <select style="width:30%;" id="inputDuration" name="week" class="form-control d-inline">
+                                                    <option selected value="0">0 Week</option>
+                                                    <option  value="1">1 Week</option>
+                                                    <option value="2">2 Weeks</option>
+                                                    <option value="3">3 Weeks</option>
+                                                    <option value="4">4 Weeks</option>
+                                                    <option value="5">5 Weeks</option>
+                                                    <option value="6">6 Weeks</option>
+                                                </select>
+
+                                                <select style="width:30%;" id="inputDuration" name="month" class="form-control d-inline">
+                                                    <option selected value="0">0 Month</option>
+                                                    <option  value="1">1 Month</option>
+                                                    <option value="2">2 Months</option>
+                                                    <option value="3">3 Months</option>
+                                                    <option value="4">4 Months</option>
+                                                    <option value="5">5 Months</option>
+                                                    <option value="6">6 Months</option>
                                                 </select>
                                             </div>
 
@@ -116,9 +107,9 @@
 
 
                                             <div
-                                                class="multi_modal verification col-lg-3 col-md-4 col-sm-12 col-12">
+                                                class="multi_modal verification col-lg-2 col-md-2 col-sm-12 col-12">
                                                 <label for="multi_modal" class="v_title">Frequency of Updates</label>
-                                                <select id="inputDuration" name="duration" class="form-control">
+                                                <select id="FOU" name="FOU" class="form-control">
                                                     <option selected value="1">1 Day</option>
                                                     <option value="Hourly updates">Hourly updates</option>
                                                     <option value="Daily updates">Daily updates</option>
