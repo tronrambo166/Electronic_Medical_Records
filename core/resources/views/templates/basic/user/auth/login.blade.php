@@ -12,107 +12,37 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
     <div class="d-block w-100 py-1" style="background: #72C537;">
-                <a data-target="#loginModal" data-toggle="modal" style="color:black;cursor: pointer; " class="float-right btn btn-light rounded header_buttons px-3 my-1 px-1 py-1 mx-1 d-inline-block small text-center"><span id="c_to_ac">
-                                        Sign Up as a Project Manager</span></a>
+
+
+                <button data-bs-target="#loginModal" data-bs-toggle="modal" style="color:black;cursor: pointer; " class="float-right btn btn-light rounded header_buttons px-3 my-1 px-1 py-1 mx-1 d-inline-block small text-center">
+                    <span id="c_to_ac">
+                                        Sign Up as a Project Manager</span>
+                </button>
+
             </div>
-    <section class="login bg_img bg-overlay-base" data-background="{{asset($activeTemplateTrue.'/')}}/images/element/contact.jpg">
-
-            
-
-            <div class="clearfix"></div>
-
-        <div class="container mx-auto">
-        <div class="container mx-auto">
-
-            <div class="form">
-                <form action="" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="top">
-                        <a href="{{ 'home' }}" class="d-flex justify-content-center">
-                            <h3 class="fw-bold fs-4"> <i class="las la-sign-in-alt"></i> Sign Up</h3>
-                        </a>
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" name="email" class="form-control" id="usename" placeholder="Username/Email" value="{{ old('email') }}" />
-                    </div>
-                    <div class="mb-3">
-                        <input type="password" name="password" placeholder="password" class="form-control" id="password" />
-                    </div>
-
-                    <div class="mb-3 form-check d-flex justify-content-between">
-                        <div>
-                         <input type="checkbox" class="form-check-input p-2 my-auto" id="exampleCheck1" />
-                         <label class="form-check-label" for="exampleCheck1">Remember me</label>
-                        </div>
-                        <div>
-
-                        <span><a href="{{ route('user.password.request') }}" class="text-danger form-check-label"> Forget Password?</a></span>
-                        </div>
-                     </div>
-                    <button type="submit" class="btn--base btn--base-e w-100">Login</button>
-                </form>
-                <p class="d-block text-center mt-5 create-acc fw-bold">
-                    &mdash; Don't have an account?
-                    <a href="{{ route('user.register') }}">Register</a>
-                    &mdash;
-                </p>
-            </div>
-        </div>
-        </div>
 
 
            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             LOGIN MODAL -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div style="" class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content" style="width: 585px;border-radius: 20px;">
+            <div class="modal-content" style="width: 585px;">
 
-                 <button type="button" class="m-0 close float-left text-left d-inline-block pt-2 pl-3 h3" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                 <button type="button" style="width: 5%;" class="m-0 close float-left text-left d-inline bg-white" data-bs-dismiss="modal" aria-label="Close">
+                        <span class="ml-auto" aria-hidden="true">&times;</span>
                     </button>
-
-                <div id="header" class="py-0 m-auto modal-header" style="width: 75%; border-bottom:1px solid #66666630;">
-
-                    <div class="d-block mx-auto my-3 rounded-circle border-bottom text-center" style="background: #C4C4C4">
-                        <div class="mini_logo rounded-circle p-2">
-                             <img width="31px" class=" pl-1" src="images/randomIcons/mini_logo.png">
-                        </div>
-                       
-                    </div>
-                </div>
 
 
                 <div class="m-auto modal-body text-center" style="width: 75%;">
 
-                    <div class="card-header d-block w-50 m-auto">
-                        <div class="row">
-                            
-                        <div class="col-md-6">
-                            <button id="login"  class=" pb-1 font-weight-bold   px-1 ">{{ __('Sign In') }}</button>
-                        </div>
-
-                        <div class="col-md-6">
-                             <button id="register"  class=" pb-1  font-weight-bold  px-2">{{ __('Sign Up') }}</button>
-                        </div>              
-
-                        @if(Session::has('email')) <p class="text-danger ml-5">{{Session::get('email')}} @php Session::forget('email'); @endphp </p> @endif
-
-                        </div>
-                    </div>
-
-
-                   <!--  <div id="choose" class="px-0 collapse">
-                        <h5 class="text-secondary font-weight-bold text-center btn btn-light w-100 m-auto">Please choose the account type!</h5>
-                    </div> -->
-
 
                     <div class="hidden_currency ">
 
-                        <div class="row justify-content-center py-2 mb-2">
+                        <div class="row justify-content-center mb-2">
                             <div class="px-0 w-100 py-0">
 
 
-                                <div class="collapse" id="all_registers">
+                                <div class="" id="all_registers">
 
                                
                                     <div class="text-center User-Artist-Select">
@@ -122,7 +52,7 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
                                      <div class="col-md-5"></div>
                                       <div id="errors" class="w-100">
                                         </div>
-                                        <div class="card-header d-block w-75 mx-auto mt-5 mb-4">
+                                        <div class="card-header d-block w-75 mx-auto mb-4">
                                             <div class="row">
                                                 
                                             <div class="col-md-12 text-center sinup_text">
@@ -135,8 +65,6 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
                                             </div>
                                         </div>
                                     </div>
-
-
 
 
 
@@ -182,13 +110,13 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
 
                                            <div class="row my-3 form_fields_black" style="width: 80%;">
                                             <div class="col-md-12">
-                                                <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left ">What's your gender?(optional) </p></label>
+                                                <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left small_label">What's your gender?(optional) </p></label>
                                             </div>
 
                                             <div id="" class="form_fields_black col-md-4">
                                             
                                             <div class="row">
-                                            <div class="col-sm-1"><input class="" type="radio" name="gender" value="F" id="F" />
+                                            <div class="col-sm-1"><input class="" type="radio" readOnly name="gender" value="F" id="F" />
                                              </div>
                                             <div class="col-sm-8">
                                             <label class="mb-0 w-100">
@@ -230,7 +158,7 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
 
                                             <div class="row my-2">
                                             <div class="col-md-12 form_fields_black">
-                                                <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left ">What's your date of birth? </p></label>
+                                                <label class="mb-0 w-100"><p class="small_label mb-0 d-block w-100 float-left text-left ">What's your date of birth? </p></label>
                                             </div>
 
                                             <div id="form_fields_black" class="col-md-4">
@@ -416,20 +344,20 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
                                             </div>
 
                                             <div id="form_fields2" class="mt-3">
-                                                <label class="mb-0 w-100"><p class="mb-0 d-block w-50 float-left small small_label">Password</p>
-                                                    <span id="hideButton3" onclick="passShow3();" class="float-right p-0 w-50 text-right small_label px-2">
-                                                     <img id="passIcon3" width="15px" src="images/randomIcons/see.png"> <span id="hide3">Show</span>  
-                                                    </span>
+                                                <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left small small_label">Password <span id="hideButton3" onclick="passShow3();" class="hide_see p-0 w-50 text-right small_label px-2">
+                                                     <img id="passIcon3" width="15px" src="assets/randomIcons/see.png"> <span id="hide3">Show</span>  
+                                                    </span></p>
+                                                    
                                                 </label>
                                            
                                             <input onkeyup="pass_match1(this.value); fill2(this.value);" class="border w-100 py-2 mr-1" name="password" id="inputPassword3" type="password" value="" required />
                                             </div>
 
                                             <div id="form_fields2" class="my-3">
-                                                <label class="mb-0 w-100"><p class="mb-0 d-block w-50 float-left small small_label">Confirm Password</p>
-                                                    <span id="hideButton2" onclick="passShow2();" class="float-right p-0 w-50 text-right small_label px-2">
-                                                     <img id="passIcon2" width="15px" src="images/randomIcons/see.png"> <span id="hide2">Show</span>  
-                                                    </span>
+                                                <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left small small_label">Confirm Password <span id="hideButton2" onclick="passShow2();" class="hide_see float-right p-0 w-50 text-right small_label px-2">
+                                                     <img id="passIcon2" width="15px" src="assets/randomIcons/see.png"> <span id="hide2">Show</span>  
+                                                    </span></p>
+                                                    
                                                 </label>
                                            
                                             <input onkeyup="pass_match2(this.value); fill2(this.value);" class="border w-100 py-2 mr-1" name="password_confirmation" id="inputPassword2" type="password" value="" required />
@@ -501,9 +429,9 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
 
                                 <!-- Logout-->
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
-                                </form>
+                                </form> --}}
 
 
 
@@ -524,6 +452,56 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
         </div>
     </div>
   <!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+
+    <section class="login bg_img bg-overlay-base" data-background="{{asset($activeTemplateTrue.'/')}}/images/element/contact.jpg">
+
+            
+
+            <div class="clearfix"></div>
+
+        <div class="container mx-auto">
+        <div class="container mx-auto">
+
+            <div class="form">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="top">
+                        <a href="{{ 'home' }}" class="d-flex justify-content-center">
+                            <h3 class="fw-bold fs-4"> <i class="las la-sign-in-alt"></i> Sign Up</h3>
+                        </a>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="email" class="form-control" id="usename" placeholder="Username/Email" value="{{ old('email') }}" />
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" name="password" placeholder="password" class="form-control" id="password" />
+                    </div>
+
+                    <div class="mb-3 form-check d-flex justify-content-between">
+                        <div>
+                         <input type="checkbox" class="form-check-input p-2 my-auto" id="exampleCheck1" />
+                         <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                        </div>
+                        <div>
+
+                        <span><a href="{{ route('user.password.request') }}" class="text-danger form-check-label"> Forget Password?</a></span>
+                        </div>
+                     </div>
+                    <button type="submit" class="btn--base btn--base-e w-100">Login</button>
+                </form>
+                <p class="d-block text-center mt-5 create-acc fw-bold">
+                    &mdash; Don't have an account?
+                    <a href="{{ route('user.register') }}">Register</a>
+                    &mdash;
+                </p>
+            </div>
+        </div>
+        </div>
+
+
+
 
     </section>
 
@@ -551,157 +529,8 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
         });
 
 
-        //MODAL
-         function passShow(){
-            $('#inputPassword').attr('type','text');
-            $('#hideButton').attr("onclick","passHide()");
-            document.getElementById("hide").innerHTML="Hide";
-            $('#passIcon').attr('src','images/randomIcons/hide.png');
-        }
-        function passHide(){
-            $('#inputPassword').attr('type','password');
-            $('#hideButton').attr("onclick","passShow()");
-            document.getElementById("hide").innerHTML="Show";
-            $('#passIcon').attr('src','images/randomIcons/see.png');
-        }
-
-
-        function email_ck(value) {
-            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            if(regex.test(value) == true)
-                $('#er_email').addClass('collapse');
-            else
-                $('#er_email').removeClass('collapse');
-        }
-
-
-        function pass_ck(value) {
-            email = $('#inputEmailAddress').val().length;
-            pass = value.length;
-
-            if(email > 9 && pass > 7){
-            $('#login_btn').prop("disabled", false);
-            $('#login_btn').css('background','#014811');
-            }
-        }
-
-        function next() {
-            $('#step_one').addClass('collapse');
-            $('#step_two').removeClass('collapse');
-            $('#reg_back').removeClass('collapse');
-            document.getElementById('steps').innerHTML = '2';
-        }
-
-        function step_one() {
-            $('#step_two').addClass('collapse');
-            $('#step_one').removeClass('collapse');
-            $('#reg_back').addClass('collapse');
-            document.getElementById('steps').innerHTML = '1';
-        }
-
-        //For Register
-        function passShow2(){
-            $('#inputPassword2').attr('type','text');
-            $('#hideButton2').attr("onclick","passHide2()");
-            document.getElementById("hide2").innerHTML="Hide";
-            $('#passIcon2').attr('src','images/randomIcons/hide.png');
-        }
-        function passHide2(){
-            $('#inputPassword2').attr('type','password');
-            $('#hideButton2').attr("onclick","passShow2()");
-            document.getElementById("hide2").innerHTML="Show";
-            $('#passIcon2').attr('src','images/randomIcons/see.png');
-        }
-
-         function passShow3(){
-            $('#inputPassword3').attr('type','text');
-            $('#hideButton3').attr("onclick","passHide3()");
-            document.getElementById("hide3").innerHTML="Hide";
-            $('#passIcon3').attr('src','images/randomIcons/hide.png');
-        }
-        function passHide3(){
-            $('#inputPassword3').attr('type','password');
-            $('#hideButton3').attr("onclick","passShow3()");
-            document.getElementById("hide3").innerHTML="Show";
-            $('#passIcon3').attr('src','images/randomIcons/see.png');
-        }
-
-        function email_ck2(value) {
-            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            if(regex.test(value) == true)
-                $('#er_email2').addClass('collapse');
-            else
-                $('#er_email2').removeClass('collapse');
-        }
-
-        $('#next_reg').prop("disabled", true);
-
-
-        function fill(value) {  
-            var filled = 0;
-            var fname = $('#fname').val();
-            var lname = $('#lname').val();
-            var mname = $('#mname').val();
-            var month = $('#month').val();
-            var day = $('#day').val();
-            var year = $('#year').val();
-
-            if(fname != '' && lname != '' && mname != '' && month != '' && day != ''
-             && year != '')
-                filled = 1;  //console.log(filled)
-
-            if(filled == 1){
-            $('#next_reg').prop("disabled", false);
-            $('#next_reg').css('background','#014811');
-            }
-            else{
-            $('#next_reg').prop("disabled", true);
-            $('#next_reg').css('background','#01481140');
-            }
-        }
-
-        function pass_match1(value) {
-            sessionStorage.setItem('pass1',value);
-        }
-        function pass_match2(value) {
-            //var pass1 = sessionStorage.getItem('pass1');
-            //if(pass1 =='')
-            pass1 = $('#inputPassword3').val();
-            var filled = $('#filled').val();
-
-            if(value == pass1){
-                 $('#er_pass').addClass('collapse');
-            }
-            else{
-                $('#er_pass').removeClass('collapse');
-            }
-            
-        }
-
-
-        function fill2(value) {  
-            var filled = 0;
-            var p1 = $('#inputPassword3').val();
-            var mname = $('#inputEmailAddress2').val();
-            var p2 = $('#inputPassword2').val();
-            var captcha = $('#captcha').val();
-
-            if(p1 != '' && p2 != '' && mname != '' && captcha != '' &&  p1 == p2)
-                filled = 1;  console.log(filled+'YES')
-
-
-            if( filled == 1 ){
-            $('#proceed_reg').prop("disabled", false);
-            $('#proceed_reg').css('background','#014811');
-           
-            }
-            else{
-            $('#proceed_reg').prop("disabled", true);
-            $('#proceed_reg').css('background','#01481140');
-            
-            }
-        }
-
+        
 
     </script>
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 @endpush

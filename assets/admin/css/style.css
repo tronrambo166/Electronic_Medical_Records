@@ -4580,3 +4580,5 @@ select.form-control[multiple], select.form-control[size] {
 }
 
 .multi-select-modal{width: 70%;}
+
+.small_label{text-align: left;}

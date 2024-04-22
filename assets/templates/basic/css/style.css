@@ -7900,3 +7900,18 @@ section.documentation code .comment {
     right: -10px;
   }
 }
+
+.small_label{text-align: left;}
+.proceed_btn{
+  width: 99%;
+    background: #01481140;
+    border-radius: 35px;
+    border: none;
+    padding-bottom: 13px;
+    color: #FFFFFF !important;
+}
+
+.hide_see{
+  float: right;
+  text-align: right;
+}
