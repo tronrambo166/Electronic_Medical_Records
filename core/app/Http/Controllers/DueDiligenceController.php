@@ -49,7 +49,7 @@ class DueDiligenceController extends Controller
 
         $in['user_id'] = $user->id;
         $in['property_id'] =  $property->id;
-        $in['duration'] =  $request->day.' days, '.$request->week.' weeks, '.$request->month.' months,'.;
+        $in['duration'] =  $request->day.' days, '.$request->week.' weeks, '.$request->month.' months,';
         $in['verification_type'] = $request->verification_type;
         $in['FOU'] = $request->FOU;
 
