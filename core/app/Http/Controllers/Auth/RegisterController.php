@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -71,9 +72,9 @@ class RegisterController extends Controller
             'firstname' => 'sometimes|required|string|max:50',
             'lastname' => 'sometimes|required|string|max:50',
             'email' => 'required|string|email|max:90|unique:users',
-            'username' => 'required|string|max:50|unique:users',
+            //'username' => 'required|string|max:50|unique:users',
             'password' => ['required','string','min:4'],
-            'terms' => $agree
+            //'terms' => $agree
         ]);
         return $validate;
     }
@@ -117,9 +118,26 @@ class RegisterController extends Controller
         $user->email = strtolower(trim($data['email']));
         $user->password = Hash::make($data['password']);
         $user->username = isset($data['username']) ? $data['username'] : null;
+
+        $user->month = isset($data['month']) ? $data['month'] : null;
+        $user->year = isset($data['year']) ? $data['year'] : null;
+        $user->day = isset($data['day']) ? $data['day'] : null;
+        $user->gender = isset($data['gender']) ? $data['gender'] : null;
+
+        $user->project_service = isset($data['project_service']) ?
+        $data['project_service'] : null;
+        $user->address = isset($data['address']) ? $data['address'] : null;
+        $user->g_map_id = isset($data['g_map_id']) ? $data['g_map_id'] : null;
+        $user->lat = isset($data['lat']) ? $data['lat'] : null;
+        $user->lng = isset($data['lng']) ? $data['lng'] : null;
+
         $user->image = 'defult.png';
-        $user->status = 1;
+        if($user->project_service !='')
+            $user->status = 2;
+        else
+            $user->status = 1;
         $user->save();
+        Session::put('register','Registration Success!');
 
         return $user;
     }

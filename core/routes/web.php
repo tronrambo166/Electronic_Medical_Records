@@ -125,6 +125,7 @@ Route::name('user.')->group(function () {
 
     Route::get('register', [RegisterController::class,'showRegistrationForm'])->name('register');
     Route::post('register',  [RegisterController::class,'register'])->middleware('regStatus');
+
     Route::post('check-mail', 'Auth\RegisterController@checkUser')->name('checkUser');
 
     Route::get('password/reset', [ForgotPasswordController::class,'showLinkRequestForm'])->name('password.request');
@@ -183,6 +184,7 @@ Route::name('user.')->prefix('user')->group(function () {
     });
 });
 
+ Route::post('/register_p',  [RegisterController::class,'register'])->name('register_p');
 Route::get('project/details/{id}/{slug}', [UserPropertyController::class,'propertySearchDetails'])->name('property.details');
 Route::get('/cookie/accept', 'SiteController@cookieAccept')->name('cookie.accept');
 

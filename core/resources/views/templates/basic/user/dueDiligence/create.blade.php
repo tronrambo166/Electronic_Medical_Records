@@ -24,7 +24,7 @@
                                     @csrf
                                     <div class="information">
                                         <div class="row">
-                                            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-6">
+                                            <div class="form-group col-lg-4 col-md-4 col-sm-6 col-6">
                                                 <label for="inputListing">Choose Project</label>
                                                 <select id="inputListing" name="project" class="form-control">
                                                     <option value="">Select Project</option>
@@ -34,8 +34,20 @@
 
                                                 </select>
                                             </div>
+
+                                            <div class="form-group col-lg-3 col-md-3 col-sm-6 col-6">
+                                                <label for="inputListing">Project Manager</label>
+                                                <select id="inputListing" name="project" class="form-control">
+                                                    <option value="">Select Project</option>
+                                                   @foreach($managers as $key => $man)
+                                                   <option value="{{ $property->id }}">{{ $man->username }}</option>
+                                                   @endforeach
+
+                                                </select>
+                                            </div>
+
                                             <div
-                                                class="form-group col-lg-4 col-md-4 col-sm-6 col-6 duration">
+                                                class="form-group col-lg-5 col-md-5 col-sm-6 col-6 duration">
                                                 <label for="inputDuration">Choose
                                                     Duration</label>
                                                     <select style="width:30%;" id="inputDuration" name="day" class="form-control d-inline">
@@ -93,17 +105,17 @@
                                             </div>
 
                                             
-                                            <div
-                                                class="multi_modal verification col-lg-3 col-md-4 col-sm-12 col-12">
-                                                <label for="multi_modal" class="v_title">Verification Type</label>
-                                                <select id="multi_modal" name="verification_type[]" multiple>
-                                                    <option value="legal">Legal</option>
-                                                    <option value="video">Video</option>
-                                                    <option value="Photo">Photo</option>
-                                                    <option value="Request VIP" class="w-50">Request VIP (360 live <br> monitoring with accessible URL)</option>
-                                                    
-                                                </select>
-                                            </div>
+                                <div
+                                    class="multi_modal verification col-lg-3 col-md-3 col-sm-12 col-12">
+                                    <label for="multi_modal" class="v_title">Verification Type</label>
+                                    <select id="multi_modal" name="verification_type[]" multiple>
+                                        <option value="legal">Legal</option>
+                                        <option value="video">Video</option>
+                                        <option value="Photo">Photo</option>
+                                        <option value="Request VIP" class="w-50">Request VIP (360 live <br> monitoring with accessible URL)</option>
+                                        
+                                    </select>
+                                </div>
 
 
                                             <div
@@ -123,7 +135,7 @@
 
                                         </div>
                                         <button type="submit"
-                                            class="btn--base btn--base-e w-100">Submit</button>
+                                            class="mt-4 btn--base btn--base-e w-100">Submit</button>
                                     </div>
                                 </form>
                             </div>

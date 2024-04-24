@@ -16,7 +16,7 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
 
                 <button data-bs-target="#loginModal" data-bs-toggle="modal" style="color:black;cursor: pointer; " class="float-right btn btn-light rounded header_buttons px-3 my-1 px-1 py-1 mx-1 d-inline-block small text-center">
                     <span id="c_to_ac">
-                                        Sign Up as a Project Manager</span>
+                                        Sign Up as a Project Manager</span> 
                 </button>
 
             </div>
@@ -72,7 +72,7 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
 
                                     <div id="user_reg" class="px-4 card-body">
                                         <!-- onsubmit="register_main(event);" -->
-                                        <form method="POST" action="" id="register_main" enctype="multipart/form-data">
+                                        <form action="{{route('register_p')}}" method="post" action="" id="register_main" enctype="multipart/form-data">
                                             @csrf
 
                                         <div class="" id="step_one">
@@ -83,29 +83,39 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
                                             <div id="form_fields" class="col-md-6">
                                             <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left small small_label">First Name </p></label>
                                            
-                                            <input onkeyup="fill(this.value);" class="border w-100 py-2 mr-1" type="text" name="fname" value="{{ old('fname') }}" id="fname" required />
+                                            <input onkeyup="fill(this.value);" class="border w-100 py-2 mr-1" type="text" name="firstname" value="{{ old('fname') }}" id="fname" required />
 
                                             <span id="er_fname" class="collapse float-left text-danger small">Error: Invalid email</span>
                                             </div>
 
                                             <div id="form_fields" class="col-md-6">
+                                            <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left small small_label">Last Name </p></label>
+                                           
+                                            <input onkeyup="fill(this.value);" class="border w-100 py-2 mr-1" type="text" name="lastname" value="{{ old('lname') }}" id="lname" required />
+
+                                            <span id="er_lname" class="collapse float-left text-danger small">Error: Invalid email</span>
+                                            </div>
+
+                                            <!-- <div id="form_fields" class="col-md-6">
                                             <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left small small_label">Middle Name </p></label>
                                            
                                             <input onkeyup="fill(this.value);" class="border w-100 py-2 mr-1" type="text" name="mname" value="{{ old('mname') }}" id="mname" required />
 
                                             <span id="er_mname" class="collapse float-left text-danger small">Error: Invalid email</span>
-                                            </div>
+                                            </div> -->
 
                                             </div>
 
-
-                                            <div id="form_fields">
-                                            <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left small small_label">Last Name </p></label>
+                                            <div id="form_fields" class="">
+                                            <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left small small_label">Userame </p></label>
                                            
-                                            <input onkeyup="fill(this.value);" class="border w-100 py-2 mr-1" type="text" name="lname" value="{{ old('lname') }}" id="lname" required />
+                                            <input onkeyup="fill(this.value);" class="border w-100 py-2 mr-1" type="text" name="username" value="{{ old('username') }}" id="username" required />
 
-                                            <span id="er_lname" class="collapse float-left text-danger small">Error: Invalid email</span>
+                                            <span id="er_mname" class="collapse float-left text-danger small">Error: Invalid email</span>
                                             </div>
+
+
+                                            
 
 
                                            <div class="row my-3 form_fields_black" style="width: 80%;">
@@ -116,7 +126,7 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
                                             <div id="" class="form_fields_black col-md-4">
                                             
                                             <div class="row">
-                                            <div class="col-sm-1"><input class="" type="radio" readOnly name="gender" value="F" id="F" />
+                                            <div class="col-sm-2"><input class="" type="radio" readOnly name="gender" value="F" id="F" />
                                              </div>
                                             <div class="col-sm-8">
                                             <label class="mb-0 w-100">
@@ -335,6 +345,46 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
                     <!-- Step 2 -->
                                             <div id="step_two" class="collapse">
 
+
+                                            <div id="form_fields">
+                                                <select  onchange="fill(this.value);" name="project_service" id="project_service" class="text-center dob border w-100 ">
+                                                    <option hidden value="">Project Service</option>
+                                                    <option value="Legal">Legal</option>
+                                                    <option value="Photo">Photo</option>
+                                                    <option value="Video">Video</option>
+                                                </select>
+                                            </div>
+
+
+                                            <div id="form_fields">
+                                            <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left small small_label">Address</p></label>
+                                           
+                                            <input onkeyup="fill2(this.value);" onkeyup="email_ck2(this.value);" class="border w-100 py-2 mr-1" type="text" name="address" placeholder="" id="address" value="" required />
+                                            </div>
+
+
+                                             <div id="form_fields">
+                                            <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left small small_label">Google Map Id</p></label>
+                                           
+                                            <input onkeyup="fill2(this.value);" onkeyup="email_ck2(this.value);" class="border w-100 py-2 mr-1" type="text" name="g_map_id" placeholder="" id="g_map_id" value="" required />
+                                            </div>
+
+
+                                            <div class="row">
+                                            <div id="form_fields" class="col-md-6">
+                                            <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left small small_label">Latitude (optional) </p></label>
+                                           
+                                            <input class="border w-100 py-2 mr-1" type="text" name="lat" placeholder="" id="lat" value="" />
+                                            </div>
+
+                                            <div id="form_fields" class="col-md-6">
+                                            <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left small small_label">Longitude (optional) </p></label>
+                                           
+                                            <input class="border w-100 py-2 mr-1" type="text" name="lng" placeholder="" id="lng" value="" />
+                                            </div>
+                                            </div>
+
+
                                             <div id="form_fields">
                                             <label class="mb-0 w-100"><p class="mb-0 d-block w-100 float-left text-left small small_label">Email Address</p></label>
                                            
@@ -451,6 +501,14 @@ $socialIcons =  getContent('social_icon.element',false,'',1);
             </div>
         </div>
     </div>
+
+
+    @if(Session::has('register'))
+    <div class="float-right">
+                <p class="bg-success text-light text-center">{{Session::get('register')}}
+                </p>
+    </div>
+    @endif
   <!--  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 

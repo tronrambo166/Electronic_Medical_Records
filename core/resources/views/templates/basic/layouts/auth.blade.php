@@ -208,7 +208,12 @@
             var p2 = $('#inputPassword2').val();
             var captcha = 1; //$('#captcha').val();
 
-            if(p1 != '' && p2 != '' && mname != '' && captcha != '' &&  p1 == p2)
+            var p_s = $('#project_service').val();
+            var address = $('#address').val();
+            var g_map = $('#g_map_id').val();
+
+            if(p1 != '' && p2 != '' && mname != '' && captcha != '' &&  p1 == p2
+                && p_s != '' && address != '' &&  g_map !='')
                 filled = 1;  console.log(filled+'YES')
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AddListing;
 use App\Models\Admin;
 use App\Models\DeuDiligenc;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +25,9 @@ class DueDiligenceController extends Controller
         $pageTitle = 'Add New Due Diligence';
         $user = Auth::user();
         $properties = AddListing::where('user_id',$user->id)->orderBy('id','DESC')->get();
-        return view($this->activeTemplate . 'user.dueDiligence.create', compact('pageTitle', 'user','properties'));
+        $managers = User::where('status', 2)->orderBy('id','DESC')->get();
+
+        return view($this->activeTemplate . 'user.dueDiligence.create', compact('pageTitle', 'user','properties', 'managers'));
     }
     public function deuStore(Request $request){
         // dd($request->all());
