@@ -4582,8 +4582,3 @@ select.form-control[multiple], select.form-control[size] {
 .multi-select-modal{width: 70%;}
 
 .small_label{text-align: left;}
-
-.multi-select-menuitem{
-  white-space: break-spaces !important;
-  width: 60%;
-}

@@ -25,7 +25,7 @@ class DueDiligenceController extends Controller
         $pageTitle = 'Add New Due Diligence';
         $user = Auth::user();
         $properties = AddListing::where('user_id',$user->id)->orderBy('id','DESC')->get();
-        $managers = User::where('status', 2)->orderBy('id','DESC')->get();
+        $managers = User::where('status', 2)->get();
 
         return view($this->activeTemplate . 'user.dueDiligence.create', compact('pageTitle', 'user','properties', 'managers'));
     }
@@ -84,4 +84,38 @@ class DueDiligenceController extends Controller
         $notify[] = ['success',  $property->title.' Due Diligence Deleted Successfully.'];
         return back()->withNotify($notify);
     }
+
+
+    //Distance Function
+    //$this->findNearestServices($lat,$lng,100);
+    public function findNearestServices($latitude, $longitude, $radius = 100)
+    {
+        $listings = Services::selectRaw("* ,
+                         ( 3956 * acos( cos( radians(?) ) *
+                           cos( radians( lat ) )
+                           * cos( radians( lng ) - radians(?)
+                           ) + sin( radians(?) ) *
+                           sin( radians( lat ) ) )
+                         ) AS distance", [$latitude, $longitude, $latitude])
+            ->where('category', '=', '0')
+            ->having("distance", "<", $radius)
+            ->orderBy("distance",'asc')
+            ->offset(0)
+            ->limit(20)
+            ->get();
+
+        foreach($listings as $list){
+        if(strlen($list->location) > 30)
+        $list->location = substr($list->location,0,30).'...';
+
+        $user = User::where('id', $list->shop_id)->first();
+        if($user){
+        $list->manager = $user->fname.' '.$user->lname;
+        $list->contact = $user->email;
+      }
+        }
+
+        return $listings;
+    }
+    //Distance Function
 }
