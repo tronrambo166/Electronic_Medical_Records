@@ -38,7 +38,7 @@
                                             <div class="form-group col-lg-3 col-md-3 col-sm-6 col-6">
                                                 <label for="inputListing">Project Manager</label>
                                                 <select id="inputListing" name="project" class="form-control">
-                                                    <option value="">Select Project</option>
+                                                    <option value="">Select Manager</option>
                                                    @foreach($managers as $key => $man)
                                                    <option value="{{ $property->id }}">{{ $man->username }}</option>
                                                    @endforeach
